@@ -1,0 +1,28 @@
+﻿body 
+{
+    font-size:15px;
+}
+
+.titulo
+{
+    font-size:25px;
+    font-weight:bolder;
+    color:#555588;
+    text-align:center;
+}
+table
+{
+    background:#AAAAFF;
+    border: solid 1px #000033;
+}
+th
+{
+    border: solid 1px #222255;
+    background:#FFFFFF;
+    padding:3px 10px 3px 10px;
+}
+td
+{
+    border: solid 1px #222255;
+    text-align:center;
+}

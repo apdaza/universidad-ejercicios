@@ -1,0 +1,18 @@
+Proceso ValidarBinario
+   Escribir "Digite un numero a validar:";
+   Leer num;
+   contn<-0;
+   temp<-num;
+   mientras temp>0 hacer
+      a<-(temp/10-trunc(temp/10))*10;
+      si a>1 entonces
+         contn<-contn+1;
+      finsi
+      temp<-trunc(temp/10);
+   finmientras
+   si contn>0 entonces
+      escribir "el numero no es un binario valido";
+   sino
+      escribir "el numero es un binario valido";
+   finsi
+FinProceso

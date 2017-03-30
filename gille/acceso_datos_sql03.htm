@@ -1,0 +1,669 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+<meta http-equiv="expires" content="-1">
+<meta http-equiv="Window-target" content="_top">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="MS.LOCALE" content="es">
+<meta name="MSHAttr" content="DocSet:NETFramework">
+<meta name="MSHAttr" content="DevLang:CSharp">
+<meta name="MSHAttr" content="DocSet:C#">
+<meta name="MSHAttr" content="DevLang:VB">
+<meta name="MSHAttr" content="DocSet:Visual Basic">
+
+<meta name="MSHAttr" content="DevLang:ADO">
+<meta name="MSHAttr" content="DevLang:ASP">
+
+<link href="acceso_datos_sql03_files/estiloArticulosGuille.css" type="text/css" rel="stylesheet">
+<meta name="Author" content="Guillermo 'guille' Som">
+<meta name="Search.TopicType" content="kbArticle">
+<meta name="Search.PublishDate" content="Sun, 04 Feb 2007 19:21:58 GMT">
+<meta name="Search.RevisedDate" content="Sun, 04 Feb 2007 19:21:58 GMT"><title>Tutorial de acceso a datos en sitio Web usando VWD y SQL Server 2005 (parte 3)</title>
+
+
+<meta name="description" content="En esta tercera parte del tutorial de cómo utilizar bases de datos en un sitio Web usando Visual Web Developer 2005 Express, vas a ver cómo buscar usuarios sabiendo la cuenta de correo, también actualizaremos los datos de un usuario existente."></head><body alink="#ff0000" bgcolor="#d7d7ff" link="#0000ff" vlink="#0000ff">
+
+<script language="JavaScript">
+var gsPath = "../../../"
+function IrADeLista(){
+    var s1 = gsBanner.D1.selectedIndex;
+    var s2 = gsBanner.D1.options[s1].value;
+    if( s2 != "Selecciona" )
+        window.location = gsPath + s2;
+}
+</script>
+<script language="JavaScript" src="acceso_datos_sql03_files/elGuille.js"></script><table border="1" width="100%">  <tbody><tr>    <td rowspan="2" align="middle" valign="middle" width="200">       <a href="http://www.elguille.info/default.aspx">       <img src="acceso_datos_sql03_files/el_guille_002.gif" alt="ir al indice principal" border="0"></a>    </td>    <td align="middle">       <font color="#000080" face="Comic Sans MS" size="4"><strong><a href="http://www.elguille.info/el_guille.aspx" style="color: navy;"><acronym title="Quien es el Guille?">el Guille</acronym></a>, la Web del Visual Basic, C#, .NET y más...</strong></font>    </td>  </tr>   <tr>       <td align="middle" background="acceso_datos_sql03_files/barra_grisclaro.png" height="20"><b><font face="Verdana" size="1">&nbsp;       <a href="http://www.elguille.info/lonuevo/2007/octubre/Default.aspx"><acronym title="Lo Nuevo de este mes">Lo+</acronym></a> -       <a href="http://www.elguille.info/NET/WinFX/default.aspx"><acronym title="Indice de WinFX, WPF, WWF, WCF y .NET 3.0">WinFX</acronym></a> -       <a href="http://www.elguille.info/NET/default.aspx"><acronym title="El indice de punto NET">.NET</acronym></a> -       <a href="http://www.elguille.info/NET/ADONET/indiceADONET.asp"><acronym title="Bases de datos de punto NET">ADO.NET</acronym></a> -       <a href="http://www.elguille.info/NET/ASPNET/indiceASPNET.aspx"><acronym title="Paginas y servicios Web en punto NET">ASP.NET</acronym></a> -       <a href="http://www.elguille.info/NET/comodotnet.aspx"><acronym title="Como... en punto NET">Cómo...</acronym></a> -       <a href="http://www.elguille.info/colabora/colabora.htm"><acronym title="Las colaboraciones">Colabora</acronym></a> -       <a href="http://www.elguille.info/vb/default.aspx"><acronym title="El indice de Visual Basic 6">VB6</acronym></a> -       <a href="http://www.elguille.info/vb/VB_API.HTM"><acronym title="API de Windows (VB6)">API</acronym></a> -       <a href="http://www.elguille.info/HTMLscripts/HTML_Tip.aspx"><acronym title="Lenguajes Scripts y HTML">HTML</acronym></a> -       <a href="http://www.elguille.info/sistema/Vista/Default.aspx"><acronym title="Articulos y trucos para Windows Vista">Vista</acronym></a> -       <a href="http://www.elguille.info/otrositios/Default.aspx"><acronym title="Otros sitios">Links</acronym></a>&nbsp;-       <a href="http://www.elguille.info/foros_guille.aspx"><acronym title="Los foros del Guille">Foros</acronym></a>       &nbsp;</font></b></td>   </tr></tbody></table><div class="colorClaro" style="padding-top: 1em; padding-bottom: 1em;" align="center"><h2>elGuille.hosting:    Oferta de <a href="http://www.elguille.info/hostings/elguille_ofertas_hosting.asp">alojamiento multi dominio</a></h2>	<h3>Por solo 40.95 Euros al mes...</h3></div>
+<hr style="border: 3px none ;">
+&nbsp;
+<div align="center">
+<table style="border-collapse: collapse;" id="tablePanorama" bgcolor="#ffffff" border="1" bordercolor="#000000" cellpadding="8" width="770">
+<tbody><tr><td style="padding: 0cm 5pt; width: 770px;" align="left" bgcolor="#0000ff" valign="top" width="770">
+<a href="http://www.elguille.info/NET/ASPNET/indiceASPNET.aspx"><font color="#ffffff" size="6"><b><acronym title="Ir a la sección de ASP.NET">
+ASP.NET</acronym></b></font></a></td>
+</tr>
+<tr>
+<td style="padding: 0cm 5pt; width: 770px;" align="left" valign="top" width="770">
+&nbsp;<h1>Tutorial de acceso a datos en sitio Web creado con Visual Web 
+Developer 2005 Express y SQL Server 2005 Express</h1>
+<p>&nbsp;</p>
+<h3>Parte 3:<br>
+Mostrar los datos de un usuario y actualizar los datos de usuarios existentes</h3>
+<h5>&nbsp;</h5>
+<h5>Publicado el 04/Feb/2007<br>Actualizado el 04/Feb/2007<br>Autor: Guillermo 'guille' Som</h5>
+<p>&nbsp;</p>
+<center>
+<script type="text/javascript"><!--
+google_ad_client = "pub-3672683940926460";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "text";
+//2007-04-01: net2005
+google_ad_channel = "6593407188";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "0000FF";
+google_color_text = "000000";
+google_color_url = "000000";
+//-->
+</script>
+<script type="text/javascript" src="acceso_datos_sql03_files/show_ads.js">
+</script><iframe name="google_ads_frame" src="acceso_datos_sql03_files/ads.htm" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" frameborder="0" height="90" scrolling="no" width="728"></iframe>
+</center>
+&nbsp;
+</td>
+</tr>
+</tbody></table>
+</div>
+
+<div>
+<br>
+<div align="center">
+<table style="border-collapse: collapse;" bgcolor="#ffffff" border="1" bordercolor="#000000" cellpadding="2" cellspacing="8" width="770">
+ <tbody><tr>
+  <td style="padding: 0cm 5pt; width: 770px;" align="left" valign="top" width="770">
+  &nbsp;<h3>Introducción</h3>
+  <p>En esta tercera parte del <a href="http://www.elguille.info/NET/ASPNET/tutorial_vwd/acceso_datos.htm">tutorial de cómo utilizar bases de datos en un 
+	sitio Web usando Visual Web Developer 2005 Express</a>, vas a ver cómo 
+	buscar usuarios sabiendo la cuenta de correo, también actualizaremos los 
+	datos de un usuario existente.</p>
+<p>Como "extra", te muestro cómo averiguar el valor SHA1 de un texto y cómo 
+definir y usar un procedimiento almacenado de SQL Server para buscar el usuario 
+según la cuenta de correo.</p>
+	<p>&nbsp;</p>
+	<p class="Nota"><b>Nota:</b><br>
+	En esta ocasión, el código mostrado en el propio artículo es tanto para Visual Basic 2005 
+	como para C#, (para que nadie se queje), pero <a href="#codigo">
+	más abajo</a> tienes los links para el código completo, tanto de la página 
+	ASPX como para el código de Visual 
+	Basic y de C#.</p>
+	<p>&nbsp;</p>
+  <h3>Estos son los pasos para completar esta tercera parte del tutorial:</h3>
+<div>
+    <ul>
+		<li>1- Abre el proyecto <strong>vwdTut01</strong>.<br>&nbsp;</li>
+		<li>2- Añade un nuevo <strong>WebForm</strong> (ya sabes los pasos).</li>
+		<li>2.a- El nombre será <strong>ModificarUsuario.aspx</strong>, dile que el código lo
+    ponga en un fichero aparte.<br>&nbsp;</li>
+		<li>3- Como el formulario de modificar los datos será casi igual que el de introducir
+    nuevos datos, vamos a copiar el que ya tenemos y después le haremos los cambios
+    necesarios para darle la funcionalidad que queremos que tenga.</li>
+		<li>3.a- Abre la página <strong>AgregarUsuario.aspx</strong> en modo de 
+		<strong>Código</strong>,
+    ya que vamos a copiar
+    todo el código HTML para pegarlo en la página que acabas de crear en el punto 2.</li>
+		<li>3.b- Selecciona desde la etiqueta <strong>&lt;body&gt;</strong> hasta el final, lo copias y lo pegas
+    en la página nueva.</li>
+		<li>3.c- Por supuesto, al pegar, debes hacerlo desde <strong>&lt;body&gt;</strong> hasta el final, pero
+    esto supongo que ya te lo imaginabas.<br>&nbsp;</li>
+		<li>4- Ahora lo que hay que hacer es añadir un nuevo control (un botón), que estará
+    al lado de la caja de textos <strong>Correo</strong>.</li>
+		<li>4.a- Ese botón, al que le darás el nombre <strong>btnMostrar</strong>, servirá para mostrar el usuario
+    que quieres modificar.</li>
+		<li>4.b- El texto a mostrar en el botón será precisamente <strong>Mostrar</strong>.<br>&nbsp;</li>
+		<li>5- Al botón que ya estaba, debes cambiarle el nombre y el texto para que sean: 
+		<strong>btnActualizar</strong> y <strong>Actualizar</strong> respectivamente.</li>
+		<li>5.b- Si estás usando C# tendrás un pequeño problema al copiar el texto anterior
+    y cambiarle el nombre al botón, ya que si haces dobleclic en ese botón, en la ventana
+    de código se mostrará el método <strong>btnNuevo_Click</strong> en lugar del nombre que debería mostrarse: 
+		<strong>btnActualizar_Click</strong>.</li>
+		<li>5.c- Esto es así porque en C# en las propiedades del botón estará asignado el valor
+    del atributo <strong>OnClick</strong> con el valor "<strong>btnNuevo_Click</strong>".</li>
+		<li>5.d- En Visual Basic esto no suele ocurrir, ya que si tenemos el código separado
+    del diseño (se usa un fichero aparte para el código), los métodos de los eventos
+    se manejan con la cláusula <strong>Handles</strong>, por tanto, lo importante es que esa instrucción
+    esté en un método para que ese método esté asociado con el evento que se indique
+    después de <strong>Handles</strong>.</li>
+		<li>5.e- Pero si en lugar de tener el código separado del diseño, está todo en el mismo
+    fichero, el problema será el mismo tanto en Visual Basic como en C#.<br>&nbsp;</li>
+		<li>6- Para que en C# tenga el nombre "adecuado", lo que tienes que hacer es quitar
+    ese atributo (<strong>OnClick</strong>) y el código que se ha añadido al hacer antes dobleclic en
+    el botón.</li>
+		<li>6.a- Una vez que lo has borrado, vuelve a hacer dobleclic en el botón
+		<strong>Actualizar</strong>
+    y esta vez si que se creará el método con el nombre que debe tener.
+    </li>
+	</ul>
+    <h3>¿Qué hacer para modificar un usuario?</h3>
+    <ul>
+		<li>7- Esa es la pregunta que tenemos que hacernos ahora, en principio, escribirás la
+    cuenta de correo del usuario a modificar, pulsarás en el botón <strong>Mostrar</strong>,
+    se mostrarán
+    los datos del usuario si es que existe, y en caso de que no exista se avisará de
+    ese hecho y no pasará nada.</li>
+		<li>7.a- Una vez que tenemos los datos del usuario que queremos modificar, los podremos
+    modificar y al pulsar en el botón Actualizar, se guardarán los datos en la base
+    de datos.<br>&nbsp;</li>
+		<li>8- Ahora tenemos que plantearnos que hacemos con la clave, al menos si nuestra intención
+    es poder cambiarla. Ya que la guardamos como un valor SHA1.</li>
+		<li>8.a- La primera posibilidad que tenemos es introducir la clave en modo "normal"
+    y hacer lo mismo que hicimos en la parte de introducir un nuevo usuario, es decir,
+    crear la clave SHA1 a partir del texto que introduzcamos.</li>
+		<li>8.b- El problema es que si queremos modificar otros datos, pero dejar la clave como
+    estaba, pues... lo tendremos complicado, ya que en realidad no sabremos que clave
+    es... porque recuerda que si solo conocemos el valor SHA1 será imposible saber que
+    clave era... y como me imagino que no te vas a saber todas las claves de memoria,
+    pues... habrá que hacer algo para que no tengamos que preguntarle al usuario cual
+    era su clave, o decirle que se la hemos cambiado.</li>
+		<li>8.c- Si introducimos la clave directamente como un valor SHA1, ya no tendremos el
+    problema de saber que clave era, y de esa forma, si hacemos algún cambio en cualquiera
+    de los otros datos, no habrá problemas con la clave, ya que en esta ocasión no volveremos
+    a generar el valor SHA1, sino que guardaremos lo que haya en la caja de textos.</li>
+		<li>8.d- El problema lo tendremos a la hora de introducir una nueva clave (porque queramos
+    cambiarla), ya que tendremos que saber el valor SHA1 de esa nueva clave.</li>
+		<li>8.e- Una solución es tener un "generador" de valores SHA1 a partir de un texto,
+    de esa forma, si queremos cambiar una clave, escribiremos el texto de la nueva clave,
+    pulsaremos en el botón de generar el valor SHA1 y el resultado será lo que usemos
+    para guardar en el campo <strong>Clave</strong>.</li>
+		<li>8.f- Es decir, lo mismo (o casi) que hicimos a la hora de añadir un nuevo usuario,
+    pero sin que sea automático. Mejor te explico cómo hacerlo y así lo tendrás más
+    claro.<br>&nbsp;</li>
+		<li>9- Añade un botón junto a la caja de textos de la clave.</li>
+		<li>9.a- Modifica las propiedades del botón para que muestre el texto 
+		<strong>Generar clave
+        SHA1</strong> y el nombre sea <strong>btnClaveSha1</strong>.<br>&nbsp;</li>
+		<li>10- Como el editor de formularios Web se empeña en manejar el tamaño de las celdas
+    con valores en pixel, y para que se vea bien los 40 caracteres que tiene el valor
+    SHA1 generado, tendremos que "engañar" al editor... o casi.</li>
+		<li>10.a- Así que, vamos a seleccionar todas las columnas en las que están las cajas
+    de textos y le vamos a dar un valor en porcentaje.</li>
+		<li>10.b- Si mueves el cursor encima de la primera fila (el borde de la tabla), verás
+    que se muestra una especie de flecha.</li>
+		<li>10.c- Pon el ratón encima de la segunda columna y pulsa en la flechita esa, de esa
+    forma se seleccionarán todas las columnas (en realidad las columnas que están en
+    las filas que tienen dos columnas).</li>
+		<li>10.d- Una vez que tienes las columnas seleccionadas, en la ventana de propiedades
+    ve a la propiedad <strong>Style</strong>, verás que pone <strong>WIDTH: 100px</strong>,
+    borra desde los dos puntos,
+    y escribe 80%, de forma que ahora muestre <strong>WIDTH:
+        80%</strong>.</li>
+		<li>10.e- Ahora selecciona el control <strong>txtClave</strong> y en la propiedad 
+		<strong>Width</strong> escribe 90% (o
+    100%, como quieras), esto hará que la caja de texto ocupe ese porcentaje de la celda
+    en la que está.<br>&nbsp;</li>
+		<li>11- Ahora es tiempo de escribir el código. Te explico lo que hará al pulsar en el
+    botón de generar la clave SHA1</li>
+		<li>11.b- Se leerá el valor que haya en <strong>txtClave</strong>, se usará para generar el valor SHA1
+    y se volverá a asignar a ese mismo control.</li>
+		<li>11.c- Como en este caso queremos que se vea lo que se generará, asegúrate de que
+    el control <strong>txtClave</strong> NO tiene el valor <strong>Password</strong>
+    en la propiedad <strong>TextMode</strong>, sino que tiene el valor <strong>SingleLine</strong>.<br>&nbsp;</li>
+		<li>12- Haz dobleclic en el botón de generar la clave y escribe este código:
+		</li>
+	</ul>
+<pre><span style="color: rgb(0, 0, 255);">Protected</span> <span style="color: rgb(0, 0, 255);">Sub</span> btnClaveSha1_Click(<span style="color: rgb(0, 0, 255);">ByVal</span> sender <span style="color: rgb(0, 0, 255);">As</span> <span style="color: rgb(0, 0, 255);">Object</span>, _
+            <span style="color: rgb(0, 0, 255);">ByVal</span> e <span style="color: rgb(0, 0, 255);">As</span> System.EventArgs) _
+            <span style="color: rgb(0, 0, 255);">Handles</span> btnClaveSha1.Click
+    <span style="color: rgb(0, 128, 0);">' Generar la clave SHA1 a partir de lo que haya en txtClave</span>
+    <span style="color: rgb(0, 128, 0);">' y asignar nuevamente a ese mismo textBox el resultado</span>
+    <span style="color: rgb(0, 0, 255);">Dim</span> clave <span style="color: rgb(0, 0, 255);">As</span> <span style="color: rgb(0, 0, 255);">String</span>
+    clave = FormsAuthentication.HashPasswordForStoringInConfigFile( _
+                txtClave.Text, <span style="color: rgb(178, 34, 34);">"SHA1"</span>)
+    txtClave.Text = clave
+<span style="color: rgb(0, 0, 255);">End</span> <span style="color: rgb(0, 0, 255);">Sub</span>
+</pre>
+    <ul>
+		<li>12.a- El código para C# es el siguiente:
+</li>
+	</ul>
+<pre><span style="color: rgb(0, 0, 255);">protected</span> <span style="color: rgb(0, 0, 255);">void</span> btnGenerarClaveSha1_Click(<span style="color: rgb(0, 0, 255);">object</span> sender, EventArgs e)
+{
+    <span style="color: rgb(0, 128, 0);">// Generar la clave SHA1 a partir de lo que haya en txtClave</span>
+    <span style="color: rgb(0, 128, 0);">// y asignar nuevamente a ese mismo textBox el resultado</span>
+    <span style="color: rgb(0, 0, 255);">string</span> clave;
+    clave = FormsAuthentication.HashPasswordForStoringInConfigFile(
+        txtClave.Text, <span style="color: rgb(178, 34, 34);">"SHA1"</span>);
+    txtClave.Text = clave;
+}
+</pre>
+    <ul>
+		<li>13- Prueba esto que acabas de hacer, pero para que se pueda "navegar" a esta nueva
+    página, tendrás que añadir un nuevo control <b>HyperLink</b> en la página <b>Default.aspx</b>
+    para que vayas a esta nueva página al pulsar en él.</li>
+		<li>13.a- Para probar, escribe una clave y pulsa en el botón <b>Generar clave SHA1</b> y verás
+    que se muestra el valor que le corresponde al texto que has escrito, por ejemplo,
+    para el valor 123456, el valor de SHA1 será: 7C4A8D09CA3762AF61E59520943DC26494F8941B.</li>
+		<li>13.b- Por supuesto, para hacer esa prueba, debes escribir una cuenta de correo y
+    un nombre, ya que al tener los validadores, pues... nos avisará de que esos campos
+    deben tener algo. </li>
+	</ul>
+    <h3>Mostrar los datos de un usuario</h3>
+    <ul>
+		<li>14- Ahora le toca al código del botón <b>Mostrar</b>, en ese botón vamos a comprobar si
+    el correo indicado está en la tabla, y en caso de que así sea, mostraremos los datos
+    en las cajas de texto que correspondan.</li>
+		<li>14.a- Para leer los datos, usaremos un objeto <b>SqlConnection</b>, un objeto 
+		<b>SqlCommand</b>
+    con la cadena de selección para recuperar todos los datos del usuario que tenga
+    la cuenta de correo que indiquemos. Para poder acceder a esos datos devueltos por
+    la consulta, usaremos un objeto <b>SqlDataAdapter</b> y un objeto <b>DataTable</b>.</li>
+		<li>14.b- En realidad no nos hacen falta ni el objeto para la conexión ni el comando,
+    ya que lo podríamos hacer todo con el adaptador, pero así podrás ver otra forma
+    de acceder a los datos, ya que te será útil si, por ejemplo usas un <b>procedimiento
+    almacenado</b> (<i>stored procedure</i>) para hacer esa comprobación.</li>
+		<li>14.c- ¿Que dices? ¿Quieres que usemos un procedimiento almacenado?</li>
+		<li>14.d- Vale... pero primero te muestro el código para hacerlo de forma normal.<br>&nbsp;</li>
+		<li>15- En el formulario <b>ModificarUsario.aspx</b>, pulsa en el botón 
+		<b>Mostrar</b> y escribe lo
+    siguiente:<br>15.a- Primero en Visual Basic:
+</li>
+	</ul>
+<pre><span style="color: rgb(0, 0, 255);">Protected</span> <span style="color: rgb(0, 0, 255);">Sub</span> btnMostrar_Click(<span style="color: rgb(0, 0, 255);">ByVal</span> sender <span style="color: rgb(0, 0, 255);">As</span> <span style="color: rgb(0, 0, 255);">Object</span>, _
+            <span style="color: rgb(0, 0, 255);">ByVal</span> e <span style="color: rgb(0, 0, 255);">As</span> System.EventArgs) _
+            <span style="color: rgb(0, 0, 255);">Handles</span> btnMostrar.Click
+    <span style="color: rgb(0, 0, 255);">Me</span>.lblAviso.Text = ""
+    <span style="color: rgb(0, 128, 0);">'</span>
+    <span style="color: rgb(0, 128, 0);">' Comprobamos si el nombre ya existe</span>
+    <span style="color: rgb(0, 0, 255);">Using</span> cnn <span style="color: rgb(0, 0, 255);">As</span> <span style="color: rgb(0, 0, 255);">New</span> SqlConnection(<span style="color: rgb(0, 0, 255);">Me</span>.SqlDataSource1.ConnectionString)
+        <span style="color: rgb(0, 128, 0);">' La cadena de slección será la que tenga el DataSource,</span>
+        <span style="color: rgb(0, 128, 0);">' pero buscando el correo que hemos escrito</span>
+        <span style="color: rgb(0, 0, 255);">Dim</span> sel <span style="color: rgb(0, 0, 255);">As</span> <span style="color: rgb(0, 0, 255);">String</span>
+        sel = <span style="color: rgb(0, 0, 255);">Me</span>.SqlDataSource1.SelectCommand &amp; _
+                    <span style="color: rgb(178, 34, 34);">" WHERE Correo = @Correo"</span>
+        <span style="color: rgb(0, 0, 255);">Dim</span> cmd <span style="color: rgb(0, 0, 255);">As</span> <span style="color: rgb(0, 0, 255);">New</span> SqlCommand(sel, cnn)
+
+        <span style="color: rgb(0, 128, 0);">' Abrimos la conexión</span>
+        cnn.Open()
+        <span style="color: rgb(0, 128, 0);">' Añadimos el valor del parámetro de la consulta</span>
+        cmd.Parameters.AddWithValue(<span style="color: rgb(178, 34, 34);">"@Correo"</span>, txtCorreo.Text)
+
+        <span style="color: rgb(0, 128, 0);">' El resultado lo guardaremos en una tabla</span>
+        <span style="color: rgb(0, 0, 255);">Dim</span> tabla <span style="color: rgb(0, 0, 255);">As</span> <span style="color: rgb(0, 0, 255);">New</span> DataTable
+        <span style="color: rgb(0, 128, 0);">' Usaremos un DataAdapter para leer los datos</span>
+        <span style="color: rgb(0, 0, 255);">Dim</span> da <span style="color: rgb(0, 0, 255);">As</span> <span style="color: rgb(0, 0, 255);">New</span> SqlDataAdapter(cmd)
+        <span style="color: rgb(0, 128, 0);">' Llenamos la tabla con los datos leídos</span>
+        da.Fill(tabla)
+
+        <span style="color: rgb(0, 128, 0);">' Si la tabla no tiene filas, es que no existe ese usuario</span>
+        <span style="color: rgb(0, 0, 255);">If</span> tabla.Rows.Count = 0 <span style="color: rgb(0, 0, 255);">Then</span>
+            <span style="color: rgb(0, 128, 0);">' Avisamos y salimos</span>
+            <span style="color: rgb(0, 0, 255);">Me</span>.lblAviso.Text = <span style="color: rgb(178, 34, 34);">"El usuario NO existe"</span>
+            <span style="color: rgb(0, 0, 255);">Exit</span> <span style="color: rgb(0, 0, 255);">Sub</span>
+        <span style="color: rgb(0, 0, 255);">End</span> <span style="color: rgb(0, 0, 255);">If</span>
+
+        <span style="color: rgb(0, 128, 0);">' Mostramos los datos</span>
+        <span style="color: rgb(0, 128, 0);">' que estarán en la primera fila de la tabla,</span>
+        <span style="color: rgb(0, 128, 0);">' ya que solo debería haber un solo usuario con ese correo</span>
+        <span style="color: rgb(0, 0, 255);">Me</span>.txtClave.Text = tabla.Rows(0)(<span style="color: rgb(178, 34, 34);">"Clave"</span>).ToString
+        <span style="color: rgb(0, 0, 255);">Me</span>.txtFecha.Text = tabla.Rows(0)(<span style="color: rgb(178, 34, 34);">"Fecha"</span>).ToString
+        <span style="color: rgb(0, 0, 255);">Me</span>.txtNombre.Text = tabla.Rows(0)(<span style="color: rgb(178, 34, 34);">"Nombre"</span>).ToString
+        <span style="color: rgb(0, 0, 255);">Me</span>.txtComentarios.Text = tabla.Rows(0)(<span style="color: rgb(178, 34, 34);">"Comentarios"</span>).ToString
+
+        <span style="color: rgb(0, 0, 255);">Me</span>.lblAviso.Text = <span style="color: rgb(178, 34, 34);">"El usuario existe y se han leído los datos."</span>
+
+        <span style="color: rgb(0, 128, 0);">' Al salir del bloque Using se cierra la conexión</span>
+    <span style="color: rgb(0, 0, 255);">End</span> <span style="color: rgb(0, 0, 255);">Using</span>
+
+<span style="color: rgb(0, 0, 255);">End</span> <span style="color: rgb(0, 0, 255);">Sub</span>
+</pre>
+    <ul>
+		<li>15.b- Ahora el código de C#:
+</li>
+	</ul>
+<pre><span style="color: rgb(0, 0, 255);">protected</span> <span style="color: rgb(0, 0, 255);">void</span> btnMostrar_Click(<span style="color: rgb(0, 0, 255);">object</span> sender, EventArgs e)
+{
+    <span style="color: rgb(0, 0, 255);">this</span>.lblAviso.Text = "";
+    <span style="color: rgb(0, 128, 0);">//</span>
+    <span style="color: rgb(0, 128, 0);">// Comprobamos si el nombre ya existe</span>
+    <span style="color: rgb(0, 0, 255);">using</span> (SqlConnection cnn = <span style="color: rgb(0, 0, 255);">new</span> SqlConnection(<span style="color: rgb(0, 0, 255);">this</span>.SqlDataSource1.Connec
+    {
+        <span style="color: rgb(0, 128, 0);">// La cadena de slección será la que tenga el DataSource,</span>
+        <span style="color: rgb(0, 128, 0);">// pero buscando el correo que hemos escrito</span>
+        <span style="color: rgb(0, 0, 255);">string</span> sel;
+        sel = <span style="color: rgb(0, 0, 255);">this</span>.SqlDataSource1.SelectCommand + 
+                <span style="color: rgb(178, 34, 34);">" WHERE Correo = @Correo"</span>;
+        SqlCommand cmd = <span style="color: rgb(0, 0, 255);">new</span> SqlCommand(sel, cnn);
+
+        <span style="color: rgb(0, 128, 0);">// Abrimos la conexión</span>
+        cnn.Open();
+        <span style="color: rgb(0, 128, 0);">// Añadimos el valor del parámetro de la consulta</span>
+        cmd.Parameters.AddWithValue(<span style="color: rgb(178, 34, 34);">"@Correo"</span>, txtCorreo.Text);
+
+        <span style="color: rgb(0, 128, 0);">// El resultado lo guardaremos en una tabla</span>
+        DataTable tabla = <span style="color: rgb(0, 0, 255);">new</span> DataTable();
+        <span style="color: rgb(0, 128, 0);">// Usaremos un DataAdapter para leer los datos</span>
+        SqlDataAdapter da = <span style="color: rgb(0, 0, 255);">new</span> SqlDataAdapter(cmd);
+        <span style="color: rgb(0, 128, 0);">// Llenamos la tabla con los datos leídos</span>
+        da.Fill(tabla);
+
+        <span style="color: rgb(0, 128, 0);">// Si la tabla no tiene filas, es que no existe ese usuario</span>
+        <span style="color: rgb(0, 0, 255);">if</span> (tabla.Rows.Count == 0)
+        {
+            <span style="color: rgb(0, 128, 0);">// Avisamos y salimos</span>
+            <span style="color: rgb(0, 0, 255);">this</span>.lblAviso.Text = <span style="color: rgb(178, 34, 34);">"El usuario NO existe"</span>;
+            <span style="color: rgb(0, 0, 255);">return</span>;
+        }
+
+        <span style="color: rgb(0, 128, 0);">// Mostramos los datos</span>
+        <span style="color: rgb(0, 128, 0);">// que estarán en la primera fila de la tabla,</span>
+        <span style="color: rgb(0, 128, 0);">// ya que solo debería haber un solo usuario con ese correo</span>
+        <span style="color: rgb(0, 0, 255);">this</span>.txtClave.Text = tabla.Rows[0][<span style="color: rgb(178, 34, 34);">"Clave"</span>].ToString();
+        <span style="color: rgb(0, 0, 255);">this</span>.txtFecha.Text = tabla.Rows[0][<span style="color: rgb(178, 34, 34);">"Fecha"</span>].ToString();
+        <span style="color: rgb(0, 0, 255);">this</span>.txtNombre.Text = tabla.Rows[0][<span style="color: rgb(178, 34, 34);">"Nombre"</span>].ToString();        
+        <span style="color: rgb(0, 0, 255);">this</span>.txtComentarios.Text = tabla.Rows[0][<span style="color: rgb(178, 34, 34);">"Comentarios"</span>].ToString();
+
+        <span style="color: rgb(0, 0, 255);">this</span>.lblAviso.Text = <span style="color: rgb(178, 34, 34);">"El usuario existe y se han leído los datos."</span>;
+
+        <span style="color: rgb(0, 128, 0);">// Al salir del bloque Using se cierra la conexión</span>
+    }
+}
+</pre>    
+    <ul>
+		<li>15.c- Acuérdate de añadir las importaciones para <b>System.Data</b> y 
+		<b>System.Data.SqlClient</b><br>&nbsp;</li>
+		<li>16- Si quieres probar esto... pruébalo, pero antes de ir a probarlo, deberías leer
+    lo que te voy a decir...</li>
+		<li>16.a- Tal como está el código de esta página, si no escribes nada en la clave ni
+    en el nombre, te mostrará el mensaje de error y no te dejará hacer nada.</li>
+		<li>16.b- Así que, lo mejor será que quitemos los controles de validación, al menos
+    los de la clave y los del nombre.</li>
+		<li>16.c- Pero al hacer eso, tenemos el problema de que nos olvidemos de escribir algo
+    en esas cajas de texto, y... bueno... que no podemos tenerlo todo, así que... tienes
+    que decidir que quieres hacer...
+    <br>&nbsp;</li>
+		<li>17- ¿Quieres dejar los controles de validación?</li>
+		<li>17.a- En ese caso, cuando solo quieras mostrar los datos, tendrás que rellenar los
+    controles que se validan.<br>&nbsp;</li>
+		<li>18- ¿Quieres quitar los controles de validación?</li>
+		<li>18.a- En ese caso, si modificas y borras el contenido de la clave o del nombre,
+    pues no habrá nadie que te avise.<br>&nbsp;</li>
+		<li>19- Mejor quita los controles de validación que controlan la clave y el nombre.
+    Pero puedes hacer lo que quieras.</li>
+		<li>19.a- Si quitas los controles de validación, al menos deja los dos que validan la
+    cuenta de correo.
+    </li>
+	</ul>
+    <h3>Crear un procedimiento almacenado</h3>
+    <ul>
+		<li>20- Ahora vamos a añadir un procedimiento almacenado a la base de datos.</li>
+		<li>20.a- Muestra la ventana del <b>Explorador de bases de datos</b>.</li>
+		<li>20.b- Si es preciso, expande la conexión de la base <b>vwdTut01.mdf</b>.</li>
+		<li>20.c- En la carpeta Procedimientos almacenados, pulsa con el botón derecho del ratón
+    y selecciona <b>Agregar nuevo procedimiento almacenado</b>.</li>
+		<li>20.d- Se abrirá una nueva ventana en la que podemos escribir el código de ese procedimiento
+    almacenado, inicialmente tendrá este código: </li>
+	</ul>
+<pre><span style="color: rgb(0, 0, 255);">CREATE</span> <span style="color: rgb(0, 0, 255);">PROCEDURE</span> dbo.StoredProcedure1 
+    <span style="color: rgb(0, 128, 0);">/*</span>
+<span style="color: rgb(0, 128, 0);">	(</span>
+<span style="color: rgb(0, 128, 0);">	@parameter1 int = 5,</span>
+<span style="color: rgb(0, 128, 0);">	@parameter2 datatype OUTPUT</span>
+<span style="color: rgb(0, 128, 0);">	)</span>
+<span style="color: rgb(0, 128, 0);">	*/</span>
+<span style="color: rgb(0, 0, 255);">AS</span>
+    <span style="color: rgb(0, 128, 0);">/* SET NOCOUNT ON */</span> 
+    <span style="color: rgb(0, 0, 255);">RETURN</span>
+</pre>    
+    <ul>
+		<li>20.e- Sustitúyelo por este otro y pulsa en el botón guardar. </li>
+	</ul>
+<pre><span style="color: rgb(0, 0, 255);">ALTER</span> <span style="color: rgb(0, 0, 255);">PROCEDURE</span> dbo.MostrarUsuario
+    @Correo <span style="color: rgb(0, 0, 255);">nvarchar</span>(64)
+<span style="color: rgb(0, 0, 255);">AS</span>
+    <span style="color: rgb(0, 0, 255);">SELECT</span> Correo, Clave, Nombre, Fecha, Comentarios
+    <span style="color: rgb(0, 0, 255);">FROM</span> dbo.Usuarios
+    <span style="color: rgb(0, 0, 255);">WHERE</span> Correo = @Correo
+
+    <span style="color: rgb(0, 0, 255);">RETURN</span>
+</pre>    
+    <ul>
+		<li>20.f- Este procedimiento almacenado hace lo mismo que en el código anterior (punto
+    15)<br>&nbsp;</li>
+		<li>21- Ahora solo falta cambiar el código del objeto <b>SqlCommand</b> para que use este procedimiento
+    almacenado.</li>
+		<li>21.a- En el código del método del botón mostrar, sustituye el código de la declaración
+    del comando (y el de la variable <b>sel</b>) y pon este para Visual Basic:
+		</li>
+	</ul>
+<pre><span style="color: rgb(0, 128, 0);">' Usando un procedimiento almacenado</span>
+<span style="color: rgb(0, 0, 255);">Dim</span> cmd <span style="color: rgb(0, 0, 255);">As</span> <span style="color: rgb(0, 0, 255);">New</span> SqlCommand()
+cmd.CommandText = <span style="color: rgb(178, 34, 34);">"MostrarUsuario"</span>
+cmd.CommandType = CommandType.StoredProcedure
+cmd.Connection = cnn</pre>    
+    <ul>
+		<li>21.b- Este es el de C#:
+</li>
+	</ul>
+<pre><span style="color: rgb(0, 128, 0);">// Usando un procedimiento almacenado</span>
+SqlCommand cmd = <span style="color: rgb(0, 0, 255);">new</span> SqlCommand();
+cmd.CommandText = <span style="color: rgb(178, 34, 34);">"MostrarUsuario"</span>;
+cmd.CommandType = CommandType.StoredProcedure;
+cmd.Connection = cnn;</pre>    
+    <ul>
+		<li>21.c- El resto del código es exactamente igual, pruébalo y saldrás de dudas.
+    	</li>
+		<li>21.d- Fíjate que al usar un procedimiento almacenado, asignamos a la 
+		propiedad <b>CommandType</b> del comando el valor <b>
+		CommadType.StoredProcedure</b> para que se entere de que estamos usando 
+		un procedimiento almacenado en lugar de una sentencia T-SQL directa.</li>
+		<li>21.e- Cuando no asignamos el valor <b>StoredProcedure</b> a la 
+		propiedad <b>CommandType</b>, el valor que tiene es <b>Text</b>, que es 
+		el predeterminado de esa propiedad.</li>
+	</ul>
+    <h3>El código para actualizar los datos modificados</h3>
+    <ul>
+		<li>22- Lo siguiente que tienes que hacer es escribir el código para actualizar los
+    datos escritos.</li>
+		<li>22a- En el evento <b>Click</b> del botón <b>Actualizar</b> tendrás que escribir el código para
+    actualizar los datos del usuario cuyo correo hayas escrito.</li>
+		<li>22b- ¿Que haremos en ese método?</li>
+		<li>22c- Pues, comprobar que el correo indicado está en la base de datos.</li>
+		<li>22d- Si no está, mostrar un error.</li>
+		<li>22.e- Si existe, usaremos el contenido de la propiedad <b>UpdateCommand</b> del 
+		<b>DataSource</b> para actualizar los datos.</li>
+		<li>22.f- La llamada a ese comando de actualización la hacemos por medio 
+		del método <b>ExecuteNonQuery</b> del comando, pero una vez que hemos asignado 
+		los valores de los parámetros, que en este caso, también usamos el 
+		método <b>AddWithValue</b>.</li>
+		<li>22.g- Este es el código para Visual Basic: </li>
+	</ul>
+<pre><span style="color: rgb(0, 0, 255);">Protected</span> <span style="color: rgb(0, 0, 255);">Sub</span> btnActualizar_Click(<span style="color: rgb(0, 0, 255);">ByVal</span> sender <span style="color: rgb(0, 0, 255);">As</span> <span style="color: rgb(0, 0, 255);">Object</span>, _
+            <span style="color: rgb(0, 0, 255);">ByVal</span> e <span style="color: rgb(0, 0, 255);">As</span> System.EventArgs) _
+            <span style="color: rgb(0, 0, 255);">Handles</span> btnActualizar.Click
+    <span style="color: rgb(0, 0, 255);">Me</span>.lblAviso.Text = ""
+    <span style="color: rgb(0, 128, 0);">'</span>
+    <span style="color: rgb(0, 128, 0);">' Comprobamos si el nombre ya existe</span>
+    <span style="color: rgb(0, 0, 255);">Using</span> cnn <span style="color: rgb(0, 0, 255);">As</span> <span style="color: rgb(0, 0, 255);">New</span> SqlConnection(<span style="color: rgb(0, 0, 255);">Me</span>.SqlDataSource1.ConnectionString)
+        <span style="color: rgb(0, 128, 0);">' El valor que necesitamos es el ID</span>
+        <span style="color: rgb(0, 0, 255);">Dim</span> cmd <span style="color: rgb(0, 0, 255);">As</span> <span style="color: rgb(0, 0, 255);">New</span> SqlCommand( _
+                <span style="color: rgb(178, 34, 34);">"SELECT ID "</span> &amp; _
+                <span style="color: rgb(178, 34, 34);">"FROM Usuarios "</span> &amp; _
+                <span style="color: rgb(178, 34, 34);">"WHERE Correo = @Correo"</span>, cnn)
+        <span style="color: rgb(0, 128, 0);">' Abrimos la conexión</span>
+        cnn.Open()
+        <span style="color: rgb(0, 128, 0);">' Añadimos el valor del parámetro de la consulta</span>
+        cmd.Parameters.AddWithValue(<span style="color: rgb(178, 34, 34);">"@Correo"</span>, txtCorreo.Text)
+
+        <span style="color: rgb(0, 128, 0);">' Si devuelve cero, es que no existe</span>
+        <span style="color: rgb(0, 0, 255);">Dim</span> i <span style="color: rgb(0, 0, 255);">As</span> <span style="color: rgb(0, 0, 255);">Integer</span>
+        i = <span style="color: rgb(0, 0, 255);">CInt</span>(cmd.ExecuteScalar())
+        <span style="color: rgb(0, 0, 255);">If</span> i = 0 <span style="color: rgb(0, 0, 255);">Then</span>
+            <span style="color: rgb(0, 128, 0);">' Avisamos y salimos</span>
+            <span style="color: rgb(0, 0, 255);">Me</span>.lblAviso.Text = <span style="color: rgb(178, 34, 34);">"El usuario NO existe"</span>
+            <span style="color: rgb(0, 0, 255);">Exit</span> <span style="color: rgb(0, 0, 255);">Sub</span>
+        <span style="color: rgb(0, 0, 255);">End</span> <span style="color: rgb(0, 0, 255);">If</span>
+
+        <span style="color: rgb(0, 128, 0);">' Si llegamos aquí, es que el usuario existe</span>
+        <span style="color: rgb(0, 128, 0);">' Deberíamos hacer las comprobaciones de que haya datos que guardar,</span>
+        <span style="color: rgb(0, 128, 0);">' pero... eso te lo dejo a ti...</span>
+        <span style="color: rgb(0, 128, 0);">'</span>
+        <span style="color: rgb(0, 128, 0);">' Seguimos usando la misma conexión, pero cambiamos el comando</span>
+
+        <span style="color: rgb(0, 128, 0);">' Usamos el comando Update del DataSource</span>
+        cmd = <span style="color: rgb(0, 0, 255);">New</span> SqlCommand(<span style="color: rgb(0, 0, 255);">Me</span>.SqlDataSource1.UpdateCommand, cnn)
+
+        <span style="color: rgb(0, 128, 0);">' Añadimos el valor del parámetro de la consulta</span>
+        cmd.Parameters.AddWithValue(<span style="color: rgb(178, 34, 34);">"@Correo"</span>, txtCorreo.Text)
+        <span style="color: rgb(0, 128, 0);">' La clave la guardaremos como un valor SHA1</span>
+        <span style="color: rgb(0, 128, 0);">' pero como ya estará como SHA1, simplemente la asignamos</span>
+        cmd.Parameters.AddWithValue(<span style="color: rgb(178, 34, 34);">"@Clave"</span>, txtClave.Text)
+        <span style="color: rgb(0, 128, 0);">' Esto nos puede dar problemas dependiendo del forma</span>
+        <span style="color: rgb(0, 128, 0);">' del servidor en el que está la base de datos</span>
+        cmd.Parameters.AddWithValue(<span style="color: rgb(178, 34, 34);">"@Fecha"</span>, txtFecha.Text)
+        cmd.Parameters.AddWithValue(<span style="color: rgb(178, 34, 34);">"@Nombre"</span>, txtNombre.Text)
+        cmd.Parameters.AddWithValue(<span style="color: rgb(178, 34, 34);">"@Comentarios"</span>, txtComentarios.Text)
+
+        <span style="color: rgb(0, 128, 0);">' El valor de la variable i es el ID a actualizar</span>
+        cmd.Parameters.AddWithValue(<span style="color: rgb(178, 34, 34);">"@ID"</span>, i)
+
+        <span style="color: rgb(0, 128, 0);">' Ejecutamos el comando de actualización</span>
+        <span style="color: rgb(0, 128, 0);">' podemos usar el método Update del DataSource</span>
+        <span style="color: rgb(0, 128, 0);">' (pero no actualiza nada)</span>
+        <span style="color: rgb(0, 128, 0);">'Me.SqlDataSource1.Update()</span>
+        <span style="color: rgb(0, 128, 0);">' Mejor con una llamada a ExecuteNonQuery</span>
+        cmd.ExecuteNonQuery()
+
+
+        <span style="color: rgb(0, 128, 0);">' Al salir del bloque Using se cierra la conexión</span>
+    <span style="color: rgb(0, 0, 255);">End</span> <span style="color: rgb(0, 0, 255);">Using</span>
+    <span style="color: rgb(0, 0, 255);">Me</span>.lblAviso.Text = <span style="color: rgb(178, 34, 34);">"Se han actualizado los datos correctamente"</span>
+<span style="color: rgb(0, 0, 255);">End</span> <span style="color: rgb(0, 0, 255);">Sub</span></pre>
+    <ul>
+		<li>22.h- Este es el código del método de evento del botón <b>Actualizar</b> para C#:</li>
+	</ul>
+<pre><span style="color: rgb(0, 0, 255);">protected</span> <span style="color: rgb(0, 0, 255);">void</span> btnActualizar_Click(<span style="color: rgb(0, 0, 255);">object</span> sender, EventArgs e)
+{
+    <span style="color: rgb(0, 0, 255);">this</span>.lblAviso.Text = "";
+    <span style="color: rgb(0, 128, 0);">//</span>
+    <span style="color: rgb(0, 128, 0);">// Comprobamos si el nombre ya existe</span>
+    <span style="color: rgb(0, 0, 255);">using</span> (SqlConnection cnn = 
+                <span style="color: rgb(0, 0, 255);">new</span> SqlConnection(<span style="color: rgb(0, 0, 255);">this</span>.SqlDataSource1.ConnectionString))
+    {
+        <span style="color: rgb(0, 128, 0);">// El valor que necesitamos es el ID</span>
+        SqlCommand cmd = <span style="color: rgb(0, 0, 255);">new</span> SqlCommand(
+            <span style="color: rgb(178, 34, 34);">"SELECT ID "</span> +
+            <span style="color: rgb(178, 34, 34);">"FROM Usuarios "</span> +
+            <span style="color: rgb(178, 34, 34);">"WHERE Correo = @Correo"</span>, cnn);
+        <span style="color: rgb(0, 128, 0);">// Abrimos la conexión</span>
+        cnn.Open();
+        <span style="color: rgb(0, 128, 0);">// Añadimos el valor del parámetro de la consulta</span>
+        cmd.Parameters.AddWithValue(<span style="color: rgb(178, 34, 34);">"@Correo"</span>, txtCorreo.Text);
+
+        <span style="color: rgb(0, 128, 0);">// Si devuelve cero, es que no existe</span>
+        <span style="color: rgb(0, 0, 255);">int</span> i = (<span style="color: rgb(0, 0, 255);">int</span>)cmd.ExecuteScalar();
+        <span style="color: rgb(0, 0, 255);">if</span> (i == 0)
+        {
+            <span style="color: rgb(0, 128, 0);">// Avisamos y salimos</span>
+            <span style="color: rgb(0, 0, 255);">this</span>.lblAviso.Text = <span style="color: rgb(178, 34, 34);">"El usuario NO existe"</span>;
+            <span style="color: rgb(0, 0, 255);">return</span>;
+        }
+
+        <span style="color: rgb(0, 128, 0);">// Si llegamos aquí, es que el usuario existe</span>
+        <span style="color: rgb(0, 128, 0);">// Deberíamos hacer las comprobaciones de que haya datos que guardar,</span>
+        <span style="color: rgb(0, 128, 0);">// pero... eso te lo dejo a ti...</span>
+        <span style="color: rgb(0, 128, 0);">//</span>
+        <span style="color: rgb(0, 128, 0);">// Seguimos usando la misma conexión, pero cambiamos el comando</span>
+
+        <span style="color: rgb(0, 128, 0);">// Usamos el comando Update del DataSource</span>
+        cmd = <span style="color: rgb(0, 0, 255);">new</span> SqlCommand(<span style="color: rgb(0, 0, 255);">this</span>.SqlDataSource1.UpdateCommand, cnn);
+
+        <span style="color: rgb(0, 128, 0);">// Añadimos el valor del parámetro de la consulta</span>
+        cmd.Parameters.AddWithValue(<span style="color: rgb(178, 34, 34);">"@Correo"</span>, txtCorreo.Text);
+        <span style="color: rgb(0, 128, 0);">// La clave la guardaremos como un valor SHA1</span>
+        <span style="color: rgb(0, 128, 0);">// pero como ya estará como SHA1, simplemente la asignamos</span>
+        cmd.Parameters.AddWithValue(<span style="color: rgb(178, 34, 34);">"@Clave"</span>, txtClave.Text);
+        <span style="color: rgb(0, 128, 0);">// Esto nos puede dar problemas dependiendo del forma</span>
+        <span style="color: rgb(0, 128, 0);">// del servidor en el que está la base de datos</span>
+        cmd.Parameters.AddWithValue(<span style="color: rgb(178, 34, 34);">"@Fecha"</span>, txtFecha.Text);
+        cmd.Parameters.AddWithValue(<span style="color: rgb(178, 34, 34);">"@Nombre"</span>, txtNombre.Text);
+        cmd.Parameters.AddWithValue(<span style="color: rgb(178, 34, 34);">"@Comentarios"</span>, txtComentarios.Text);
+
+        <span style="color: rgb(0, 128, 0);">// El valor de la variable i es el ID a actualizar</span>
+        cmd.Parameters.AddWithValue(<span style="color: rgb(178, 34, 34);">"@ID"</span>, i);
+
+        <span style="color: rgb(0, 128, 0);">// Ejecutamos el comando de actualización</span>
+        <span style="color: rgb(0, 128, 0);">// con una llamada a ExecuteNonQuery</span>
+        cmd.ExecuteNonQuery();
+
+
+        <span style="color: rgb(0, 128, 0);">// Al salir del bloque using se cierra la conexión</span>
+    }
+    <span style="color: rgb(0, 0, 255);">this</span>.lblAviso.Text = <span style="color: rgb(178, 34, 34);">"Se ha añadido el nuevo usuario correctamente"</span>;
+}</pre>
+    <ul>
+		<li>23- En el código hay un par de cosas que te quiero comentar.</li>
+		<li>23.a- En el primer comando he usado el <b>ID</b> como valor a recuperar para comprobar
+    si existe el usuario, ya que ese valor del <b>ID</b> lo necesitaremos para el comando
+		<b>UpdateCommand</b>
+    del <b>DataSource</b>.</li>
+		<li>23.b- La conexión no la he cerrado, ya que después hay que volver a abrirla, y en
+    realidad podemos aprovecharla para las dos cosas que hay que hacer. Por eso solo
+    hay un bloque <b>Using</b>.</li>
+		<li>23.c- La otra cosa es que en teoría, el objeto <b>DataSource</b> tiene un 
+		método <b>Update</b>,
+    que supuestamente es para actualizar los datos usando la cadena de <b>UpdateCommand</b>,
+    pero... bueno, a mi no me funciona, así que, mejor usar el método <b>ExecuteNonQuery</b> del 
+		objeto <b>SqlCommand</b>, que si que funciona.</li>
+	</ul>
+</div>
+
+	<p>&nbsp;</p>
+<p>Y esto es todo, creo que con lo explicado en estas tres partes tendrás una pequeña
+    idea de cómo manejar los datos en un sitio Web creado con ASP.NET.</p>
+<p>Lo que queda por explicarte es que podamos crear una parte del sitio que esté protegida
+    por contraseña, de forma que el usuario que quiera entrar deba escribir la contraseña
+    que se le ha asignado.</p>
+<p>Otra cosa que habrá que hacer es crear otro directorio con las páginas que 
+estamos creando en estas tres partes del tutorial, ya que, al menos
+    en teoría, solo el usuario que tenga los permisos suficientes debería poder crear,
+    modificar y ver los datos del resto de usuarios.</p>
+<p>Para que te vayas haciendo una idea (y puedas ir modificando el código que ya tenemos
+    e incluso hacerlo por tu cuenta), hay que añadir otro campo a la tabla de usuarios,
+    de forma que nos sirva para saber el "nivel" que tiene, por ejemplo, el nivel cero
+    es para los usuarios normales, y el nivel 3 para los que puedan modificar los datos
+    de los usuarios.<br>
+    Ese campo será de tipo entero (<b>int</b>) y el nombre del campo puede ser 
+<b>Nivel</b>.</p>
+<p>&nbsp;</p>
+<p>Bueno, esto es todo por ahora... ¡que te diviertas!</p>
+<p>&nbsp;</p>
+<p>Nos vemos.<br>
+    Guillermo<br>
+    Nerja, 4 de Febrero de 2007</p>
+    <hr>
+  <h3><a name="codigo"></a>El código de ejemplo para Visual Basic 2005 y Visual 
+	C# 2005</h3>
+	<ul>
+		<li><a href="http://www.elguille.info/NET/ASPNET/tutorial_vwd/acceso_datos_sql03_codigo_aspx.htm">El código de la página Web</a> (solo el código HTML de la página 
+		ModificarUsuario.aspx)</li>
+		<li>Este es el código usado en los métodos de los botones de esa página:<ul>
+		<li><a href="http://www.elguille.info/NET/ASPNET/tutorial_vwd/acceso_datos_sql03_codigo_vb.htm">El código para Visual Basic</a></li>
+		<li><a href="http://www.elguille.info/NET/ASPNET/tutorial_vwd/acceso_datos_sql03_codigo_cs.htm">El código para Visual C#</a></li>
+	</ul>
+		</li>
+	</ul>
+	<p>&nbsp;</p>
+	<p align="center"><b><a href="http://www.elguille.info/NET/ASPNET/tutorial_vwd/acceso_datos.htm">Volver al índice del 
+	tutorial</a></b></p>
+	<p><br>&nbsp;</p>
+</td>
+</tr>
+</tbody></table>
+</div>
+<br>
+</div>
+<hr style="border: 3px none ;">
+<p align="center"><a href="http://www.elguille.info/default.aspx">
+<img src="acceso_datos_sql03_files/el_guille.gif" alt="Ir al índice principal de el Guille" style="border: 0px none ;" height="50" width="200"></a></p>
+</body></html>

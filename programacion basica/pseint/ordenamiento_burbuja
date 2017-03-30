@@ -1,0 +1,23 @@
+Proceso ordenamiento_burbuja
+	Dimension numeros[10]
+	Para i<-1 Hasta 10 Hacer 
+		Escribir "Ingrese el termino ", i, " del arreglo"
+		leer numeros[i]
+	FinPara
+	
+	
+	Para i<-1 Hasta 10 Hacer 
+		Para j<-1 Hasta 10 Hacer 
+			Si numeros[i] < numeros[j] Entonces
+				temp<-numeros[i]
+				numeros[i]<-numeros[j]
+				numeros[j]<-temp
+			FinSi
+		
+		FinPara
+	FinPara
+	
+	Para i<-1 Hasta 10 Hacer 
+		Escribir numeros[i]
+	FinPara
+FinProceso

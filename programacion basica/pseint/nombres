@@ -1,0 +1,24 @@
+Proceso nombres
+	tam<-5
+	Dimension nombres[5]
+	x<-1
+	Repetir
+		Escribir "Ingrese el nombre"
+		Leer nombres[x]
+		x<-x+1
+	Hasta Que x>tam
+	
+	Para i<-1 Hasta tam Hacer 
+		Para j<-1 Hasta tam Hacer 
+			Si nombres[i] < nombres[j] Entonces
+				temp<-nombres[i]
+				nombres[i]<-nombres[j]
+				nombres[j]<-temp
+			FinSi
+		FinPara
+	FinPara
+	
+	Para i<-1 Hasta tam Hacer
+		Escribir nombres[i]
+	FinPara
+FinProceso

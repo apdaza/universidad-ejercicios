@@ -1,0 +1,26 @@
+iniciar-programa
+    define-nueva-instruccion media-vuelta como
+        repetir 2 veces
+            gira-izquierda;
+    define-nueva-instruccion busca-siguiente como
+    inicio
+        avanza;
+        si no-junto-a-zumbador entonces
+        inicio
+            media-vuelta;
+            avanza;
+            gira-izquierda;
+            avanza;
+        fin;
+    fin;
+
+
+    inicia-ejecucion
+        mientras no-junto-a-zumbador hacer
+        inicio
+            busca-siguiente;
+            coge-zumbador;
+        fin;
+        apagate;
+    termina-ejecucion
+finalizar-programa

@@ -1,0 +1,3 @@
+module Matematicas_lambda where
+
+suma n m = (\x,y -> x + y)(n)(m)

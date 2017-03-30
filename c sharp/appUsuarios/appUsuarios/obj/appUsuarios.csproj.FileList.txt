@@ -1,0 +1,10 @@
+obj\Debug\appUsuarios.exe
+obj\Debug\appUsuarios.pdb
+bin\Debug\appUsuarios.exe
+bin\Debug\appUsuarios.pdb
+bin\Debug\MySQLDriverCS.dll
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\appUsuarios.FormValidar.resources
+obj\Debug\appUsuarios.Properties.Resources.resources
+obj\Debug\appUsuarios.csproj.GenerateResource.Cache
+obj\Debug\appUsuarios.FormEstudiantes.resources

@@ -1,0 +1,50 @@
+conectado(inicio, 2).
+conectado(1, 7).
+conectado(2, 3).
+conectado(2, 8).
+conectado(3, 4).
+conectado(3, 9).
+conectado(4, 10).
+conectado(5, 6).
+conectado(5, 11).
+conectado(7, 13).
+conectado(8, 9).
+conectado(10, 16).
+conectado(11, 17).
+conectado(12, 18).
+conectado(13, 14).
+conectado(14, 15).
+conectado(14, 20).
+conectado(15, 21).
+conectado(16, 22).
+conectado(17, 23).
+conectado(18, 24).
+conectado(19, 25).
+conectado(20, 26).
+conectado(21, 22).
+conectado(23, 29).
+conectado(30, 36).
+conectado(25, 31).
+conectado(26, 27).
+conectado(27, 28).
+conectado(28, 34).
+conectado(30, 36).
+conectado(31, 32).
+conectado(32, fin).
+conectado(32, 33).
+conectado(33, 34).
+conectado(34, 35).
+conectado(35, 36).
+
+
+conectado(Pos1,Pos2) :- conecta(Pos1,Pos2).
+conectado(Pos1,Pos2) :- conecta(Pos2,Pos1).
+
+miembro(X,[X|_]).
+miembro(X,[_|Y]) :- miembro(X,Y) .
+
+sol :- camino([inicio],Sol),write(Sol) .
+
+camino([fin|RestoDelCamino],[fin|RestoDelCamino]).
+camino([PosActual|RestoDelCamino],Sol) :- conectado(PosActual,PosSiguiente),\+ miembro(PosSiguiente,RestoDelCamino),
+					   camino([PosSiguiente,PosActual|RestoDelCamino],Sol).

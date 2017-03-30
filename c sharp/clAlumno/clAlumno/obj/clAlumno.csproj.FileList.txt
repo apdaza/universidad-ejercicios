@@ -1,0 +1,6 @@
+obj\Release\ResolveAssemblyReference.cache
+bin\Release\clAlumno.dll
+bin\Release\clAlumno.pdb
+bin\Release\mysql.data.dll
+obj\Release\clAlumno.dll
+obj\Release\clAlumno.pdb

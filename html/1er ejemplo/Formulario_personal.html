@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+        <title>Formulario personal</title>
+        <link href='estilos.css' rel='stylesheet' type='text/css'>
+        <script src='validador.js' language='JavaScript1.2'></script>
+    </head>
+    <body>
+        <h1>Informaci&oacute;n personal</h1>
+        <p>Digitar la informaci&oacute;n correspondiente para los siguientes campos</p>
+
+        <form method="post" id="frmPersonal">
+          <table border="0" cellpadding="2" cellspacing="2">
+              <tr>
+                <td><b>Nombre</b></td>
+                <td colspan="2"> <input maxlength="30" size="30" id="nombre"> 
+            </td>
+              </tr>
+              <tr>
+                <td><b>Apellido</b></td>
+                <td colspan="2"> <input maxlength="30" size="30" id="apellido"> 
+            </td>
+              </tr>
+              <tr>
+                <td><b>Direcci&oacute;n</b></td>
+                <td colspan="2"> <input maxlength="50" size="40" id="direccion" type="text"> 
+            </td>
+              </tr>
+              <tr>
+                <td><b>Ciudad</b></td>
+                <td colspan="2">
+                <select tabindex="4" id="ciudad">
+                <option value="0">Seleccione una ciudad</option>
+                <option value="1">Bogot&aacute;</option>
+                <option value="2">Ch&iacute;a</option>
+                <option value="3">Cali</option>
+                </select>
+                <br>
+                </td>
+              </tr>
+              <tr>
+                <td><b>Tel&eacute;fono</b></td>
+                <td colspan="2"> 
+            <input maxlength="50" size="40" id="telefono" type="text"> 
+            </td>
+              </tr>
+              <tr>
+                <td><b>Correo</b></td>
+                <td colspan="2"> 
+            <input maxlength="50" size="40" id="correo" type="text"> </td>
+              </tr>
+              <tr>
+                <td><br>
+                </td>
+                <td><br>
+                </td>
+                <td style="text-align: right;"> 
+            <input id="aceptar" value="aceptar" type="button" onclick="validar()">
+                </td>
+              </tr>
+          </table>
+        </form>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+#include <iostream>
+#include <cstdio>
+#include <math.h>
+
+using namespace std;
+
+int main(){
+	int num,temp,bin,oct,cont;
+	cout << "ingrese el numero a convertir" << endl;
+	cin >> num;
+	temp = num;
+	cont = 0;
+	bin = 0;
+	while(temp>0){
+		bin = bin + (temp%2)*int(pow(10,cont));
+		temp=temp/2;
+		cont++;
+	}
+	cout << "el numero " << num << " en binarios es " << bin << endl;
+	temp = num;
+	cont = 0;
+	oct = 0;
+	while(temp>0){
+		oct = oct + (temp%8)*int(pow(10,cont));
+		temp=temp/8;
+		cont++;
+	}
+	cout << "el numero " << num << " en octal es " << oct;
+}

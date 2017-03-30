@@ -1,0 +1,23 @@
+#include <iostream>
+
+using namespace std;
+
+int main(){
+	char c;
+	cout << "Ingrese un caracter ";
+	cin >> c;
+	switch(c){
+		case 'a':
+		case 'e':
+		case 'i':
+		case 'o':
+		case 'u':
+			cout << "el caracter es una vocal" << endl;
+			break;
+		default:
+			cout << "el caracter no es una vocal" << endl;
+			break;
+	}
+	
+	return 0;
+}

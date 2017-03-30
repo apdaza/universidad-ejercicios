@@ -1,0 +1,372 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+<meta http-equiv="Window-target" content="_top">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="MS.LOCALE" content="es">
+<meta name="MSHAttr" content="DocSet:NETFramework">
+<meta name="MSHAttr" content="DevLang:CSharp">
+<meta name="MSHAttr" content="DocSet:C#">
+<meta name="MSHAttr" content="DevLang:VB">
+<meta name="MSHAttr" content="DocSet:Visual Basic">
+
+<meta name="MSHAttr" content="DevLang:ADO">
+<meta name="MSHAttr" content="DevLang:ASP">
+
+<link href="acceso_datos_sql02_files/estiloArticulosGuille.css" type="text/css" rel="stylesheet">
+<meta name="Author" content="Guillermo 'guille' Som">
+<meta name="Search.TopicType" content="kbArticle">
+<meta name="Search.PublishDate" content="Sun, 04 Feb 2007 15:46:10 GMT">
+<meta name="Search.RevisedDate" content="Sun, 04 Feb 2007 15:46:10 GMT"><title>Tutorial de acceso a datos en sitio Web usando VWD y SQL Server 2005 (parte 2)</title>
+
+
+<meta name="description" content="En esta segunda parte del tutorial de cómo utilizar bases de datos en un sitio Web usando Visual Web Developer 2005 Express, te explicaré cómo mostrar en un control GridView todos los datos que tenga la tabla de usuarios. Cuando haya muchos datos, será conveniente que se muestren poco a poco, aquí te explico cómo paginar los datos en el control, además de permitir la clasificación por los distintos campos que se muestran."></head><body alink="#ff0000" bgcolor="#d7d7ff" link="#0000ff" vlink="#0000ff">
+
+<script language="JavaScript">
+var gsPath = "../../../"
+function IrADeLista(){
+    var s1 = gsBanner.D1.selectedIndex;
+    var s2 = gsBanner.D1.options[s1].value;
+    if( s2 != "Selecciona" )
+        window.location = gsPath + s2;
+}
+</script>
+<script language="JavaScript" src="acceso_datos_sql02_files/elGuille.js"></script><table border="1" width="100%">  <tbody><tr>    <td rowspan="2" align="middle" valign="middle" width="200">       <a href="http://www.elguille.info/default.aspx">       <img src="acceso_datos_sql02_files/el_guille.gif" alt="ir al indice principal" border="0"></a>    </td>    <td align="middle">       <font color="#000080" face="Comic Sans MS" size="4"><strong><a href="http://www.elguille.info/el_guille.aspx" style="color: navy;"><acronym title="Quien es el Guille?">el Guille</acronym></a>, la Web del Visual Basic, C#, .NET y más...</strong></font>    </td>  </tr>   <tr>       <td align="middle" background="acceso_datos_sql02_files/barra_grisclaro.png" height="20"><b><font face="Verdana" size="1">&nbsp;       <a href="http://www.elguille.info/lonuevo/2007/octubre/Default.aspx"><acronym title="Lo Nuevo de este mes">Lo+</acronym></a> -       <a href="http://www.elguille.info/NET/WinFX/default.aspx"><acronym title="Indice de WinFX, WPF, WWF, WCF y .NET 3.0">WinFX</acronym></a> -       <a href="http://www.elguille.info/NET/default.aspx"><acronym title="El indice de punto NET">.NET</acronym></a> -       <a href="http://www.elguille.info/NET/ADONET/indiceADONET.asp"><acronym title="Bases de datos de punto NET">ADO.NET</acronym></a> -       <a href="http://www.elguille.info/NET/ASPNET/indiceASPNET.aspx"><acronym title="Paginas y servicios Web en punto NET">ASP.NET</acronym></a> -       <a href="http://www.elguille.info/NET/comodotnet.aspx"><acronym title="Como... en punto NET">Cómo...</acronym></a> -       <a href="http://www.elguille.info/colabora/colabora.htm"><acronym title="Las colaboraciones">Colabora</acronym></a> -       <a href="http://www.elguille.info/vb/default.aspx"><acronym title="El indice de Visual Basic 6">VB6</acronym></a> -       <a href="http://www.elguille.info/vb/VB_API.HTM"><acronym title="API de Windows (VB6)">API</acronym></a> -       <a href="http://www.elguille.info/HTMLscripts/HTML_Tip.aspx"><acronym title="Lenguajes Scripts y HTML">HTML</acronym></a> -       <a href="http://www.elguille.info/sistema/Vista/Default.aspx"><acronym title="Articulos y trucos para Windows Vista">Vista</acronym></a> -       <a href="http://www.elguille.info/otrositios/Default.aspx"><acronym title="Otros sitios">Links</acronym></a>&nbsp;-       <a href="http://www.elguille.info/foros_guille.aspx"><acronym title="Los foros del Guille">Foros</acronym></a>       &nbsp;</font></b></td>   </tr></tbody></table><div class="colorClaro" style="padding-top: 1em; padding-bottom: 1em;"><center><h2><span style="color: rgb(255, 0, 0);">OFERTA</span> <a href="http://www.elguille.info/hostings/elguille_ofertas_hosting.asp">alojamiento</a> .NET 2.0, SQL Server 4.95 Eur 		al mes<br>		<font color="#008000">Ahora con el doble de casi todo !!!</font></h2></center></div>
+<hr style="border: 3px none ;">
+&nbsp;
+<div align="center">
+<table style="border-collapse: collapse;" id="tablePanorama" bgcolor="#ffffff" border="1" bordercolor="#000000" cellpadding="8" width="770">
+<tbody><tr><td style="padding: 0cm 5pt; width: 770px;" align="left" bgcolor="#0000ff" valign="top" width="770">
+<a href="http://www.elguille.info/NET/ASPNET/indiceASPNET.aspx"><font color="#ffffff" size="6"><b><acronym title="Ir a la sección de ASP.NET">
+ASP.NET</acronym></b></font></a></td>
+</tr>
+<tr>
+<td style="padding: 0cm 5pt; width: 770px;" align="left" valign="top" width="770">
+&nbsp;<h1>Tutorial de acceso a datos en sitio Web creado con Visual Web 
+Developer 2005 Express y SQL Server 2005 Express</h1>
+<p>&nbsp;</p>
+<h3>Parte 2:<br>
+Mostrar todos los datos en un GridView<br>
+(con paginación, clasificable, etc.)</h3>
+<h5>&nbsp;</h5>
+<h5>Publicado el 04/Feb/2007<br>Actualizado el 04/Feb/2007<br>Autor: Guillermo 'guille' Som</h5>
+<p>&nbsp;</p>
+<center>
+<script type="text/javascript"><!--
+google_ad_client = "pub-3672683940926460";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "text";
+//2007-04-01: net2005
+google_ad_channel = "6593407188";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "0000FF";
+google_color_text = "000000";
+google_color_url = "000000";
+//-->
+</script>
+<script type="text/javascript" src="acceso_datos_sql02_files/show_ads.js">
+</script><iframe name="google_ads_frame" src="acceso_datos_sql02_files/ads.htm" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" frameborder="0" height="90" scrolling="no" width="728"></iframe>
+</center>
+&nbsp;
+</td>
+</tr>
+</tbody></table>
+</div>
+
+<div>
+<br>
+<div align="center">
+<table style="border-collapse: collapse;" bgcolor="#ffffff" border="1" bordercolor="#000000" cellpadding="2" cellspacing="8" width="770">
+ <tbody><tr>
+  <td style="padding: 0cm 5pt; width: 770px;" align="left" valign="top" width="770">
+  &nbsp;<h3>Introducción</h3>
+  <p>En esta segunda parte del <a href="http://www.elguille.info/NET/ASPNET/tutorial_vwd/acceso_datos.htm">tutorial de cómo utilizar bases de datos en un 
+	sitio Web usando Visual Web Developer 2005 Express</a>, te explicaré cómo 
+	mostrar en un control <b>GridView</b> todos los datos que tenga la tabla de 
+	usuarios. Cuando haya muchos datos, será conveniente que se muestren poco a 
+	poco, aquí te explico cómo paginar los datos en el control, además de 
+	permitir la clasificación por los distintos campos que se muestran.</p>
+	<p class="Nota"><b>Nota:</b><br>
+	Como este ejemplo no necesita ni una sola línea de código, solo te muestro 
+	lo que hay aquí, pero verás que es muy fácil de crear la página para que 
+	muestre los datos en el GridView y que no hace falta que te muestre nada 
+	más.</p>
+	<p>&nbsp;</p>
+  <h3>Estos son los pasos para completar esta segunda parte del tutorial:</h3>
+<div>
+    <ul>
+		<li>1- Abre el proyecto que creamos en <a href="http://www.elguille.info/NET/ASPNET/tutorial_vwd/acceso_datos_sql01.htm">la parte anterior</a>: <strong>vwdTut01</strong>.<br>&nbsp;</li>
+		<li>2- Añade una nueva página:</li>
+		<li>2.a- En el menú <strong>Sitio Web</strong> selecciona <strong>Agregar nuevo elemento...</strong></li>
+		<li>2.b- Del cuadro de diálogo de agregar nuevo elemento, selecciona
+		<strong>WebForms</strong>
+    y dale el nombre <strong>MostrarUsuarios.aspx</strong></li>
+		<li>2.c- Como en este primer caso no vamos a escribir ni una línea de código, si quieres,
+    quita la casilla que hay junto a <strong>Colocar el código en un archivo independiente</strong>.<br>&nbsp;</li>
+		<li>3- Si ya le habías dado a Aceptar antes de terminar de leer el punto anterior, puedes
+    modificar el código interno de ese fichero para que no use un fichero de código
+    por separado.</li>
+		<li>3.a- Muestra el fichero, y pulsa en la ficha <strong>Código</strong> para que se muestre el código
+    HTML de la página.</li>
+		<li>3.b- En la parte superior, deja solo 
+		<span style="background-color: rgb(255, 255, 0);">&lt;%</span><span style="color: rgb(0, 0, 255);">@</span> <span style="color: rgb(178, 34, 34);">Page</span>
+		<span style="color: rgb(255, 0, 0);">Language</span><span style="color: rgb(0, 0, 255);">="VB"</span>
+		<span style="background-color: rgb(255, 255, 0);">%&gt;</span> (si estás usando
+    C#, en vez de VB, pues pondrá C#)</li>
+		<li>3.c- Elimina el fichero extra que tendrá el mismo nombre de la página, pero con
+    la extensión del lenguaje que hayas elegido, por ejemplo, si has usado Visual Basic,
+    ese fichero se llamará <strong>MostrarUsuarios.aspx.vb</strong></li>
+		<li>3.d- Seguramente en la página .aspx habrá un bloque para escribir el código:</li>
+	</ul>
+<pre><span style="color: rgb(0, 0, 160);">&lt;</span><span style="color: rgb(178, 34, 34);">script</span> <span style="color: rgb(255, 0, 0);">runat</span><span style="color: rgb(0, 0, 160);">=</span><span style="color: rgb(0, 0, 255);">"server"</span><span style="color: rgb(0, 0, 160);">&gt;</span>
+
+<span style="color: rgb(0, 0, 160);">&lt;</span><span style="color: rgb(0, 0, 160);">/</span><span style="color: rgb(178, 34, 34);">script</span><span style="color: rgb(0, 0, 160);">&gt;</span></pre>
+    <ul>
+		<li>3.e- Puedes borrarlo sin problemas.<br>&nbsp;</li>
+		<li>4- Ahora vamos a mostrar todos los datos que tenemos de los usuarios</li>
+		<li>4.a- Como seguramente te imaginarás, la forma de hacerlo es como te mostré en el
+    punto 24 de la parte anterior. Te lo explico de nuevo para que no te líes... ;-)))</li>
+		<li>4.b- Muestra la página <strong>MostrarUsuarios.aspx</strong> en modo de diseño.</li>
+		<li>4.c- Del <strong>Explorador de bases de datos</strong> selecciona la conexión 
+		<strong>vwdTut01.mdf</strong> y expándela</li>
+		<li>4.d- De las <strong>Tablas</strong>, selecciona la de <strong>Usuarios</strong>
+    y arrástrala hasta la página (el formulario Web)</li>
+		<li>4.e- Esto hará que se creen dos controles: un <strong>GridView</strong> y un 
+		<strong>SqlDataSource</strong></li>
+		<li>4.f- Déjalos tal como están, ahora los personalizaremos.<br>&nbsp;</li>
+		<li>5- Haz que se muestre la página <strong>Default.aspx</strong> y que esté en modo
+    de diseño (si no está en modo diseño, ya sabes, pulsa en la ficha <strong>Diseño</strong>)</li>
+		<li>5.a- Es posible que para que se muestren los ficheros de nuestro sitio Web tengas
+    que pulsar en la ficha <strong>Explorador de soluciones</strong>, ya que en el Visual
+    Web Developer 2005 Express, la ficha del <strong>Explorador de bases de datos</strong>
+    suele estar en el mismo grupo de ventanas que el explorador de soluciones.<br>&nbsp;</li>
+		<li>6- Arrastra un control <strong>HyperLink</strong> a la página (se pondrá debajo
+    del que ya había)</li>
+		<li>6.a- Selecciona ese control, y en la ventana de propiedades, asigna la cadena 
+		<strong>Mostrar todos los usuarios</strong> a la propiedad <strong>Text</strong></li>
+		<li>6.b- En la propiedad <strong>NavigateUrl</strong> tendrás que pulsar en el botoncito
+    ese de los puntos suspensivos para que te muestre las páginas disponibles y así
+    poder elegir a la que quieres que vaya cuando se pulse en ese link, en este caso,
+    la página <strong>MostrarUsuaurios.aspx</strong><br>&nbsp;</li>
+		<li>7- Prueba que todo está bien, pulsa <strong>F5</strong> para iniciar la aplicación</li>
+		<li>7.a- Si seguiste mis indicaciones del punto 35 de la primera parte, se mostrará
+    la página <strong>Default.aspx</strong>, si no se muestra esa página y se muestra
+    otra, ya sabes lo que tienes que hacer para que la página <strong>Default.aspx</strong>
+    sea la página de inicio.</li>
+		<li>7.b- Recuerda que si no indicas la página que se usará como inicio, al pulsar 
+		<strong>F5</strong>, la página que se mostrará será la que en ese momento esté seleccionada...
+    y de casualidad, puede que sea <strong>Default.aspx</strong>, pero... para que siempre
+    se inicie en esa página, sigue los pasos esos que te indiqué antes.<br>&nbsp;</li>
+		<li>8- Pulsa en el link de <strong>Mostrar todos los usuarios</strong> para ver todos
+    los datos que tienes en la tabla de <strong>Usuarios</strong>.</li>
+		<li>8.a- Verás que se muestra todo, incluso el código SHA1 de las claves.<br>&nbsp;</li>
+		<li>9- Como esa información no tiene ninguna utilidad, mejor la quitamos.</li>
+		<li>9.a- Para quitar la columna <strong>Clave</strong> lo podemos hacer de varias formas.</li>
+		<li>9.b- Cierra la ventana del explorer y haz que se muestre la página
+		<strong>MostrarUsuarios.aspx</strong>
+    en modo de diseño.<br>&nbsp;</li>
+		<li>10- <strong>Quitar columnas del GridView, método 1: Modificando el origen de datos.</strong></li>
+		<li>10.a- Selecciona el control <strong>GridView</strong> y pulsa en la flecha que tiene
+    en la parte superior derecha para que se muestre la ventana de Tareas de 
+		<strong>GridView</strong>.</li>
+		<li>10.b- De las opciones que te da, puedes elegir <strong>Configurar origen de datos...</strong>
+    lo que hará que te muestre el asistente del origen de datos.</li>
+		<li>10.c- En la primera ventana, pulsa en <strong>Siguiente</strong> (se supone que
+    en la lista desplegable de las conexiones estará seleccionada la que estamos usando:
+		<strong>vwdTur01ConnectionString1</strong>).</li>
+		<li>10.d- En la siguiente ventana te mostrará las columnas que estás usando, quita la
+    marca de la columna <strong>Clave</strong> (verás que el texto de la cadena usada
+    para seleccionar los datos ya no muestra el campo <strong>Clave</strong>) y pulsa
+    en <strong>Siguiente</strong>.</li>
+		<li>10.e- En la siguiente pantalla pulsa en <strong>Finalizar</strong>.</li>
+		<li>10.f- Te mostrará un mensaje de advertencia diciéndote que si quieres eliminar los
+    campos del <strong>GridView</strong> bla, bla, bla. Dile que NO (es decir, pulsa
+    en el botón No).</li>
+		<li>10.g- Si pulsas en el botón Si, parecerá que todo está bien, pero al mostrar la
+    ventana, (ejecutando la aplicación y mostrando todos los datos), verás que no se
+    ve nada.</li>
+		<li>10.h- Esto es porque se eliminan las columnas del control <strong>GridView</strong>,
+    aunque el <strong>DataSource</strong> se configura de forma adecuada para que no
+    incluya ese campo.</li>
+		<li>10.i- Si lo que quieres es añadir una columna que antes has eliminado (<span style="color: purple;">si
+        te estuvieras quieto en vez de estar jugueteando, no te pasaría esto, je, je</span>),
+    tendrás que decirle que sí en vez de que no.</li>
+		<li>10.j- Pero claro, si le dices que sí, se eliminan las columnas, así que... ¡no verás
+    los datos!</li>
+		<li>10.k- Si te ocurre eso de que no se ven lo datos, lo mejor es eliminar el 
+		<strong>GridView</strong>
+    y el <strong>SqlDataSource</strong> y volver a crearlo.<br>&nbsp;</li>
+		<li>11- <strong>Quitar columnas del GridView, método 2: Editando las columnas</strong></li>
+		<li>11.a- Selecciona el <strong>GridView</strong> y pulsa en la flecha de arriba...</li>
+		<li>11.b- Pulsa en la opción <strong>Editar columnas...</strong></li>
+		<li>11.c- Te mostrará un cuadro de diálogo con las columnas de la tabla.</li>
+		<li>11.d- En la parte de abajo a la izquierda, selecciona la columna 
+		<strong>Clave</strong>
+    y pulsa en el botón con la X roja para borrarla.</li>
+		<li>11.e- NO marques la casilla esa que dice <strong>Generar campos automáticamente</strong>,
+    ya que te mostrará dos veces las columnas, además de que se incluirán todos los
+    campos de la tabla (<span style="color: purple;">además de los que ya estaban, por eso
+        te digo lo de dos veces, que hay que aclarártelo todo...</span>)</li>
+		<li>11.f- Pulsa en <strong>Aceptar</strong> para cerrar el cuadro de diálogo.
+    	</li>
+		<li>11.g- Si pruebas, (<span style="color: purple;">F5 y esas cosas, ya sabes</span>),
+    verás que se muestran los datos sin la clave, que es lo que queríamos.</li>
+		<li>11.h- Si te fijas en el código de la página, verás que en el <strong>DataSource</strong>
+    sigue estando el campo <strong>Clave</strong>, incluso en el comando <b>Select</b>, pero
+    como no está "boundado" (<span style="color: purple;">¿existe ese palabro? lo que el
+        Guille quiere decir, es que no está vinculada automáticamente ninguna columna del
+        grid a ese campo</span>) en las columnas del <strong>GridView</strong>, pues
+    no se verá.<br>&nbsp;</li>
+		<li>12- <strong>Quitar columnas del GridView, método 3: Editando el código HTML generado</strong>
+    (<span style="color: purple;">sin asistentes, así a lo bravo, je, je</span>)</li>
+		<li>12.a- Para modificar manualmente lo que se va a mostrar en el 
+		<strong>GridView</strong>,
+    debes mostrar el código HTML de la página <strong>MostrarUsuarios.aspx</strong></li>
+		<li>12.b- Si estás en modo de diseño, pulsa en la ficha <strong>Código</strong> y ve
+    a la parte en la que está la etiqueta <strong>&lt;Columns&gt;</strong> del control
+    	<strong>GridView</strong>.</li>
+		<li>12.c- Selecciona la fila en la que está la definición de la columna que quieres
+    quitar, es decir, la que empieza con: <strong>&lt;asp:BoundField DataField="Clave"</strong>,
+    y bórrala.</li>
+		<li>12.d- Para que veas que ya está lo que pretendíamos, pulsa <strong>F5</strong> y
+    muestra los datos.</li>
+		<li>12.e- Simple, ¿verdad? Pues eso...<br>&nbsp;</li>
+		<li>13- Como resulta que esta ventana solo la vamos a usar para mostrar los datos, ¿para
+    que necesitamos los comandos de insertar, eliminar y demás? Así que, vamos a borrarlos.</li>
+		<li>13.a- Esto lo puedes hacer de varias formas, por ejemplo modificando el origen de
+    datos, pero mejor es que elimines el código que se genera en la página, así vamos
+    a "tiro fijo" ;-)))</li>
+		<li>13.b- Bueno, vale... ahora te explico cómo hacerlo con el asistente... ¡es que no
+    me puedo negar a lo que me pides! ;-)))</li>
+		<li>13.c- Para eliminar los comandos de forma manual, en el código de la página, busca
+    los comandos a borrar y... ¡bórralos!</li>
+		<li>13.d- Las "instrucciones" que debes borrar son: <strong>DeleteCommand</strong>,
+    	<strong>InsertCommand</strong> (que estará en la misma línea del anterior) y por
+    último <strong>UpdateCommand</strong>.</li>
+		<li>13.c- También tendrás que quitar los bloques de <strong>&lt;InsertParameters&gt;</strong>,
+    	<strong>&lt;UpdateParameters&gt;</strong> y <strong>&lt;DeleteParameters&gt;</strong>,
+    es decir, todo lo que esté entre esas etiquetas y las correspondientes al cierre
+    de las mismas, por ejemplo: desde <strong>&lt;DeleteParameters&gt;</strong> hasta
+    	<strong>&lt;/DeleteParameters&gt;</strong>, (<span style="color: purple;">sí, ya se que
+        lo has entendido, pero si no lo haces bien, al ejecutar te dará error y después
+        vendrás protestando de que te falla, je, je, sí, vale, ya se que tu te enteras,
+        pero...</span>)</li>
+		<li>13.d- OJO al borrar el <strong>DeleteCommand</strong> (el último antes de los parámetros),
+    ya que suele tener el carácter &gt; de cierre, y si lo borras, te dará error y puede
+    que no te fijes en que es lo que ocurre.<br>&nbsp;</li>
+		<li>14- Ahora vas a usar el asistente de origen de datos para que solo se quede el comando
+    	<strong>Select</strong>.</li>
+		<li>14.a- Si has estado haciendo lo que te comenté en el paso anterior, puedes borrar
+    el <strong>GridView</strong> y el <strong>SqlDataSource</strong> y agrega nuevamente
+    la tabla de <strong>Usuarios</strong> para que esté todo como en un principio.</li>
+		<li>14.b- Bien, si ya tienes otra vez todo como estaba originalmente (se mostrará la
+    columna <strong>Clave</strong>), haz que se muestre la página en modo de diseño
+    y pulsa en la flechita de arriba del control <strong>GridView</strong>.</li>
+		<li>14.c- Pulsa en la opción <strong>Configurar origen de datos...</strong></li>
+		<li>14.d- En la primera pantalla del asistente, pulsa en <strong>Siguiente</strong>.</li>
+		<li>14.e- Quita la marca de la casilla que hay junto a <strong>Clave</strong> y pulsa
+    en el botón <strong>Avanzadas...</strong> (el que está a la derecha del panel con
+    los campos).</li>
+		<li>14.f- Del cuadro de diálogo que te muestra, quita la marca de la opción 
+		<strong>Generar
+        instrucciones Insert, Update y Delete</strong> y pulsa en <strong>Aceptar</strong>.</li>
+		<li>14.g- Pulsa en <strong>Siguiente</strong> y después en <strong>Finalizar</strong>,
+    si te muestra el aviso ese que te comenté en el punto 10, dile que NO.</li>
+		<li>14.h- Si muestras el código de la página verás que solo está el comando 
+		<strong>Select</strong>,
+    pero que en los campos enlazados está la clave, así que... borra esa línea (ver
+    el punto 12).</li>
+		<li>14.i- Pulsa la tecla <strong>F5</strong> para comprobar que todo está bien y no
+    se muestra el campo <strong>Clave</strong>.
+    </li>
+	</ul>
+    <h3>Mejorar el aspecto del GridView</h3>
+    <ul>
+		<li>15- Ahora vamos a juguetear un poco con el control <strong>GridView</strong> para cambiar el aspecto
+    del mismo, permitir la paginación y esas monadas...<br>&nbsp;</li>
+		<li>16- Empezaremos por el aspecto del <strong>GridView</strong> propiamente dicho,
+    es decir, la forma en que se verán los datos.</li>
+		<li>16.a- Muestra el diseño de la página que tiene el grid, pulsa en el 
+		botoncito ese
+    de arriba (para ver las <strong>Tareas de GridView</strong>)</li>
+		<li>16.b- Pulsa en la primera opción: <strong>Formato automático...</strong></li>
+		<li>16.c- Te mostrará un cuadro de diálogo con los diferentes formatos que puedes usar,
+    elige uno, por ejemplo: <strong>Clásica</strong>.</li>
+		<li>16.d- Verás que el aspecto del grid ha cambiado, y que se ha añadido el código necesario
+    para que se vea de esa forma, pero esto último es lo de menos.<br>&nbsp;</li>
+		<li>17- Ahora vamos a permitir la paginación, para que de esta forma, se muestre cada
+    vez un número determinado de usuarios, ya que si no se pagina, se mostrarán todos
+    los datos de una vez...</li>
+		<li>17.a- Muestra las <strong>Tareas de GridView</strong> y marca la casilla 
+		<strong>Habilitar
+        paginación</strong>, de esta forma se mostrarán los datos de 10 en 10.</li>
+		<li>17.b- Si quieres que en vez de 10 datos se muestre otra cantidad, puedes cambiar
+    el valor de la propiedad <strong>PageSize</strong> por el número de datos que quieras
+    mostrar en cada página.</li>
+		<li>17.c- Esa propiedad está accesible en modo de diseño, además de poder asignarlo
+    desde el código.<br>&nbsp;</li>
+		<li>18- Si quieres que se puedan mostrar los datos ordenados por cualquiera de los campos,
+    selecciona la opción <strong>Habilitar ordenacion</strong> (de las Tareas de GridView)</li>
+		<li>18.a- En el caso de las fechas, las ordenará como cadenas (<span style="color: purple;">o
+        eso me parece, pero creo que ni como cadenas... en fin...</span>), así que no
+    te asustes si ves que no están "correctamente" ordenadas.<br>&nbsp;</li>
+		<li>19- Si marcas la casilla <strong>Habilitar selección</strong>, decirte que... bueno...
+    solo sirve para seleccionar una fila, pero nada más.<br><br>
+		</li>
+	</ul>
+</div>
+
+	<p>&nbsp;</p>
+	<p>Y con esto y un bizcocho... pues eso, que ya tienes tarea para mostrar las cosas
+    que tienes en una tabla de una base de datos.</p>
+<p>Para que te vayas "entreteniendo" hasta que publique la tercera parte
+    (que no la última) de este tutorial de acceso a datos con Visual Web Developer y
+    SQL Server 2005, puedes agregar a cada una de las páginas un control <strong>HyperLink</strong>
+    para que al pulsarlo se vaya a la página principal (<b>Default.aspx</b>).</p>
+<p>&nbsp;</p>
+<blockquote>
+<div class="Nota">
+	<h3>Cambiar de lenguaje en una página</h3>
+	<p>Antes de irme, una cosilla que me ha pasado mientras escribía el tutorial 
+	y hacía las pruebas que te iba a explicar:</p>
+	<p>Si añades una página .aspx (sin crear el fichero de separación del código o con
+    separación, si después lo borras) y el lenguaje que tienes seleccionado al añadirla
+    es, por ejemplo Visual Basic, y después decides que no, que debe ser C#, que sepas
+    que no solo basta con cambiar el lenguaje en el atributo <b>Language</b> de la página (<b>Page</b>),
+    ya que el VWD crea una clase parcial con ciertas cosas que necesita, pero que no
+    nos muestra, y esa clase parcial la crea con el lenguaje indicado al crear la página,
+    por tanto, se hará un lío... aunque funcionará bien, pero en la lista de errores
+    tendrás un montón de errores, y el atributo ese del principio de la página lo tendrás
+    marcado como erróneo, pero sin decirte ni MÚ... ;-)))</p>
+	<p>Si cierras ese fichero que has modificado manualmente, y lo vuelves a abrir, también
+    se soluciona el error ese...</p>
+	<p>Aclararte que esto te ocurrirá cuando hayas añadido algo que necesite código, por
+    ejemplo, al añadir el <b>GridView</b>, que aunque nosotros no tengamos que escribir nada,
+    el ASP.NET 2.0 si que lo hace...</p>
+</div>    
+</blockquote>
+	<p>&nbsp;</p>
+<p>Espero que te sea de utilidad y sepas agradecerlo... (<font color="#800080">es 
+	de bien nacidos ser agradecidos</font>) ;-))))</p>
+	<p>Nos vemos.<br>
+	Guillermo<br>
+	<br>
+    Nerja, 3 de Febrero de 2007</p>
+    <hr>
+	<p align="center"><b><a href="http://www.elguille.info/NET/ASPNET/tutorial_vwd/acceso_datos.htm">Volver al índice del 
+	tutorial</a></b></p>
+	<p><br>&nbsp;</p>
+</td>
+</tr>
+</tbody></table>
+</div>
+<br>
+</div>
+<hr style="border: 3px none ;">
+<p align="center"><a href="http://www.elguille.info/default.aspx">
+<img src="acceso_datos_sql02_files/el_guille_002.gif" alt="Ir al índice principal de el Guille" style="border: 0px none ;" height="50" width="200"></a></p>
+</body></html>

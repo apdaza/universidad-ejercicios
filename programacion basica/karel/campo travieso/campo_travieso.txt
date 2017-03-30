@@ -1,0 +1,23 @@
+iniciar-programa
+    define-nueva_instruccion gira-derecha como
+    inicio
+        repetir 3 veces
+            gira-izquierda;
+    fin;
+    inicia-ejecucion
+        mientras no-junto-a-zumbador hacer
+        inicio
+            si derecha-bloqueada entonces
+            inicio
+                si frente-libre entonces
+                    avanza
+                sino
+                    gira-izquierda
+            fin;
+            sino
+                gira-derecha;
+        fin;
+        coje-zumbador;
+        apagate;
+    termina-ejecucion
+finalizar-programa

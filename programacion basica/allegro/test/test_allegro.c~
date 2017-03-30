@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <allegro.h>
+
+int iniciar(){
+	allegro_init();
+	install_keyboard(); /* nos permitira utilizar el teclado */
+	set_color_depth(24);
+	if (set_gfx_mode(GFX_AUTODETECT,640,480,0,0)<0){
+		printf("error al iniciar modo grafico\n");
+		allegro_exit();
+		exit(-1);
+	}
+}
+
+void terminar(){
+	allegro_exit();
+}
+
+void realizar_juego()
+{
+	BITMAP *nave;
+	PALETTE *paleta;
+	nave=load_bitmap("imagenes/tux.pcx",paleta);
+	draw_sprite(screen,nave,0,0);
+	readkey();
+	destroy_bitmap(nave);
+}
+int main(){
+	iniciar();
+	realizar_juego();
+	terminar();
+	return 0;
+}

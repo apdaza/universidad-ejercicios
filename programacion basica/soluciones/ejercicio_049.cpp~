@@ -1,0 +1,18 @@
+#include <iostream>
+
+using namespace std;
+
+int main(){
+	char r;
+	int x=1;
+	int tope = 1000;
+	do{
+		cout << x << "\t";
+		if(x%10==0 && x!=100){
+			cout << endl << " desea continuar (s/n) ";
+			cin >> r;
+		}
+	}while(r!='n' && x++<100);
+	cout << endl;
+	return 0;
+}

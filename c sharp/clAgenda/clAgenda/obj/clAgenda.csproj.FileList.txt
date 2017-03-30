@@ -1,0 +1,6 @@
+obj\Release\ResolveAssemblyReference.cache
+bin\Release\clAgenda.dll
+bin\Release\clAgenda.pdb
+bin\Release\mysql.data.dll
+obj\Release\clAgenda.dll
+obj\Release\clAgenda.pdb

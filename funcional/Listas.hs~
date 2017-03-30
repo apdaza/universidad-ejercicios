@@ -1,0 +1,24 @@
+{-
+	modulo para trabajar con listas
+-}
+
+module Listas where
+doblarLista::[Int]
+doblarLista = [2*x | x <- [0..10]]
+
+doblarLista2::[Int]->[Int]
+doblarLista2 (x:xs) = [2*x | x <- (x:xs)]
+
+sumaLista::[Int]->Int
+sumaLista [] = 0
+sumaLista(x:xs) = x + sumaLista xs
+
+concatenarListas::[Int]->[Int]->[Int]
+concatenarListas l1 [] = l1
+concatenarListas [] l2 = l2
+concatenarListas l1 l2 = l1 ++ l2
+
+insertarListas::[Int]->[Int]->[Int]
+insertarListas l1 [] = l1
+insertarListas [] l2 = l2
+insertarListas l1 l2 = l1 ++ l2

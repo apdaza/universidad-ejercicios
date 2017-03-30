@@ -1,0 +1,3 @@
+esta es una prueba para verificar los archivos en java
+creado por alejandro paolo daza corredor
+el 6 de noviembre de 2007
