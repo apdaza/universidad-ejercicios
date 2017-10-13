@@ -8,7 +8,7 @@ from fabricas import *
 class Villano(Sprite):
     def __init__(self, pos):
         Sprite.__init__(self)
-        fabrica = FabricaSpritesZombi()
+        fabrica = FabricaSpritesEsqueleto()
 
         self.imagenes = [fabrica.crear_derecha(),
                          fabrica.crear_izquierda(),
