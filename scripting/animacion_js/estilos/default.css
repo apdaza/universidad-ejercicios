@@ -1,0 +1,10 @@
+#lienzo {
+	border: 2px solid;
+	border-color: black;
+	border-radius: 15px;
+}
+
+#balon {
+	visibility: hidden;
+	display: none;
+}
