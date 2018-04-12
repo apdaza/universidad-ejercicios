@@ -5,7 +5,10 @@
  */
 package tet;
 
+import logica.Bebida;
+import logica.Carbohidratos;
 import logica.Ensalada;
+import logica.Menu;
 import logica.Plato;
 import logica.Proteina;
 
@@ -15,11 +18,8 @@ import logica.Proteina;
  */
 public class Test {
     public static void main(String[] args) {
-        Plato p = new Plato();
-        p.addComponente(new Proteina());
-        p.addComponente(new Ensalada());
-        
-        System.out.println(p.mostrarPlato());
+        Menu m = new Menu();
+        m.crearMenu();
     }
     
 }

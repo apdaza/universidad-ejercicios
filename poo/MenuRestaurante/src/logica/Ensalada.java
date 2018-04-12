@@ -10,7 +10,7 @@ package logica;
  * @author Estudiantes
  */
 public class Ensalada extends Componente{
-    String[] variedad = {"Lechuga","Aguacate","Ensalada cesar","Arbeja"}; 
+    String[] variedad = {"Lechuga","Aguacate","Ensalada cesar","Arbeja con mayonesa","Verdura caliente"}; 
     public Ensalada() {
         this.seleccionarVariedad(variedad);
     }
