@@ -11,10 +11,7 @@ def buscar(arbol, valor):
     if arbol.valor == valor:
         return True
     else:
-        if arbol.hijos == []:
-            return False
-        else:
-            return buscar(arbol.hijos[0], valor) or buscar2(arbol.hijos[1:], valor)
+        return buscar(arbol.hijos[0], valor) or buscar2(arbol.hijos[1:], valor)
 
 def buscar2(lista, valor):
     if lista == []:
