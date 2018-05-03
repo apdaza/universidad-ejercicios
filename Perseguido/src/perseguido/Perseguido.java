@@ -25,20 +25,8 @@ public class Perseguido {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        FileUtils fu = new FileUtils();
-        System.out.println("filas " + fu.getFileRowsCount("../archivos/matriz_002.txt"));
-        System.out.println("columnas " + fu.getFileColsCount("../archivos/matriz_002.txt"));
-        String[][] matriz = fu.fileToMatriz("../archivos/matriz_001.txt");
         Principal p = new Principal();
-        
-        p.cargarLaberinto(matriz);
-        
         p.setVisible(true);
-        
-        fu.showAsMatriz("../archivos/matriz_002.txt");
-        //fu.trasponer("../archivos/matriz_001.txt");
-        
-
     }
 
     

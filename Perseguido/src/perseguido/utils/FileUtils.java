@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Random;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -77,6 +78,13 @@ public class FileUtils {
             }
             System.out.println("");
         }
+    }
+    
+    public String archivoAleatorio(String filePath){
+        Random r = new Random();
+        File f = new File(getClass().getResource(filePath).getPath());
+        String[] lista = f.list();
+        return lista[r.nextInt(lista.length)];
     }
 
     public void trasponer(String filePath) {
