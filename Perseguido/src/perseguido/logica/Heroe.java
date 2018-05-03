@@ -35,8 +35,8 @@ public class Heroe implements Personaje {
     int sentido = 2;
     int cont = 0;
     Image imagen = imagenes[sentido][cont];
-    int xPos = 300 - imagen.getWidth(null);
-    int yPos = 200 - imagen.getHeight(null);
+    int xPos = 32;
+    int yPos = 32;
     int xVel = 0;
     int yVel = 0;
 
