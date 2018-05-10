@@ -3,12 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/daza/NetBeansProjects/Perseguido/src/perseguido/logica/Laberinto.java</file>
-            <file>file:/home/daza/NetBeansProjects/Perseguido/src/perseguido/utils/FileUtils.java</file>
-            <file>file:/home/daza/NetBeansProjects/Perseguido/src/perseguido/gui/Principal.java</file>
-            <file>file:/home/daza/NetBeansProjects/Perseguido/src/perseguido/Perseguido.java</file>
-            <file>file:/home/daza/NetBeansProjects/Perseguido/src/perseguido/archivos/matriz_001.txt</file>
-            <file>file:/home/daza/NetBeansProjects/Perseguido/src/perseguido/gui/Lienzo.java</file>
+            <file>file:/home/daza/dev/github/universidad-ejercicios/Perseguido/src/perseguido/utils/FileUtils.java</file>
+            <file>file:/home/daza/dev/github/universidad-ejercicios/Perseguido/src/perseguido/gui/Lienzo.java</file>
+            <file>file:/home/daza/dev/github/universidad-ejercicios/Perseguido/src/perseguido/gui/Principal.java</file>
+            <file>file:/home/daza/dev/github/universidad-ejercicios/Perseguido/src/perseguido/imagenes/B1.png</file>
+            <file>file:/home/daza/dev/github/universidad-ejercicios/Perseguido/src/perseguido/Perseguido.java</file>
+            <file>file:/home/daza/dev/github/universidad-ejercicios/Perseguido/src/perseguido/logica/Heroe.java</file>
+            <file>file:/home/daza/dev/github/universidad-ejercicios/Perseguido/src/perseguido/logica/Roca.java</file>
+            <file>file:/home/daza/dev/github/universidad-ejercicios/Perseguido/src/perseguido/archivos/matriz_004.txt</file>
+            <file>file:/home/daza/dev/github/universidad-ejercicios/Perseguido/src/perseguido/logica/Personaje.java</file>
         </group>
     </open-files>
 </project-private>

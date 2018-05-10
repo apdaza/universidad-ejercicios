@@ -34,12 +34,20 @@ public class Lienzo extends Canvas implements KeyListener{
         rocas = new ArrayList<Personaje>();
         timer = new Timer();
         timer.schedule(new Actualizador(), 0, 100);
-        imgBuffer = new BufferedImage(1600, 1400, BufferedImage.OPAQUE);
+        imgBuffer = new BufferedImage(600, 600, BufferedImage.TRANSLUCENT);
     }
        
 
     public void iniciarLienzo(String[][] matriz) {
         this.matriz = matriz;
+        for (int f = 0; f < matriz.length; f++) {
+            for (int c = 0; c < matriz[f].length; c++) {
+                if (matriz[f][c].equals("1")) {
+                    rocas.add(new Roca(f * 32, c * 32));
+                }
+
+            }
+        }
     }
     
     
@@ -49,15 +57,9 @@ public class Lienzo extends Canvas implements KeyListener{
         //super.paint(g); //To change body of generated methods, choose Tools | Templates.
     
         Graphics miG = imgBuffer.getGraphics();
-        miG.drawImage(new ImageIcon(getClass().getResource("../imagenes/fondo.png")).getImage(), 0, 0, null);
-        for (int f = 0; f < matriz.length; f++) {
-            for (int c = 0; c < matriz[f].length; c++) {
-                if (matriz[f][c].equals("1")) {
-                    rocas.add(new Roca(f * 32, c * 32));
-                }
-
-            }
-        }
+        //miG.drawImage(new ImageIcon(getClass().getResource("../imagenes/fondo.png")).getImage(), 0, 0, null);
+        miG.clearRect(0, 0, 800, 600);
+        
         for (Iterator<Personaje> iterator = rocas.iterator(); iterator.hasNext();) {
             Personaje next = iterator.next();
             next.draw(miG);
