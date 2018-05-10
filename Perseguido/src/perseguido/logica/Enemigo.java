@@ -8,28 +8,29 @@ package perseguido.logica;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Rectangle;
+import java.util.Random;
 import javax.swing.ImageIcon;
 
 /**
  *
  * @author daza
  */
-public class Heroe implements Personaje {
-    Image[][] imagenes = {{new ImageIcon(getClass().getResource("../imagenes/B1.png")).getImage(),
-                           new ImageIcon(getClass().getResource("../imagenes/B2.png")).getImage(),
-                           new ImageIcon(getClass().getResource("../imagenes/B3.png")).getImage()
+public class Enemigo implements Personaje {
+    Image[][] imagenes = {{new ImageIcon(getClass().getResource("../imagenes/SB1.png")).getImage(),
+                           new ImageIcon(getClass().getResource("../imagenes/SB2.png")).getImage(),
+                           new ImageIcon(getClass().getResource("../imagenes/SB3.png")).getImage()
                           },
-                          {new ImageIcon(getClass().getResource("../imagenes/D1.png")).getImage(),
-                           new ImageIcon(getClass().getResource("../imagenes/D2.png")).getImage(),
-                           new ImageIcon(getClass().getResource("../imagenes/D3.png")).getImage()
+                          {new ImageIcon(getClass().getResource("../imagenes/SD1.png")).getImage(),
+                           new ImageIcon(getClass().getResource("../imagenes/SD2.png")).getImage(),
+                           new ImageIcon(getClass().getResource("../imagenes/SD3.png")).getImage()
                           },
-                          {new ImageIcon(getClass().getResource("../imagenes/F1.png")).getImage(),
-                           new ImageIcon(getClass().getResource("../imagenes/F2.png")).getImage(),
-                           new ImageIcon(getClass().getResource("../imagenes/F3.png")).getImage()
+                          {new ImageIcon(getClass().getResource("../imagenes/SF1.png")).getImage(),
+                           new ImageIcon(getClass().getResource("../imagenes/SF2.png")).getImage(),
+                           new ImageIcon(getClass().getResource("../imagenes/SF3.png")).getImage()
                           },
-                          {new ImageIcon(getClass().getResource("../imagenes/I1.png")).getImage(),
-                           new ImageIcon(getClass().getResource("../imagenes/I2.png")).getImage(),
-                           new ImageIcon(getClass().getResource("../imagenes/I3.png")).getImage()
+                          {new ImageIcon(getClass().getResource("../imagenes/SI1.png")).getImage(),
+                           new ImageIcon(getClass().getResource("../imagenes/SI2.png")).getImage(),
+                           new ImageIcon(getClass().getResource("../imagenes/SI3.png")).getImage()
                           }
                         };
     int sentido = 2;
@@ -38,7 +39,15 @@ public class Heroe implements Personaje {
     int xPos = 32;
     int yPos = 32;
     int xVel = 0;
-    int yVel = 0;
+    int yVel = 10;
+
+    public Enemigo() {
+        Random r = new Random();
+        xPos = r.nextInt(600);
+        xPos = r.nextInt(600);
+    }
+    
+    
 
     @Override
     public void draw(Graphics g) {
@@ -57,47 +66,32 @@ public class Heroe implements Personaje {
     }
 
     public void update(int c) {
-        switch (c) {
-            case 37:
-                sentido = 3;
-                xVel = -10;
-                yVel = 0;
-                break;
-            case 38:
-                sentido = 0;
-                xVel = 0;
-                yVel = -10;
-                break;
-            case 39:
-                sentido = 1;
-                xVel = 10;
-                yVel = 0;
-                break;
-            case 40:
-                sentido = 2;
-                xVel = 0;
-                yVel = 10;
-
-                break;
-        }
-        System.out.println(c);
+        
     }
     @Override
     public void cambiarSentido(){
-        xVel *= -1;
-        yVel *= -1;
+        Random r = new Random();
+        sentido = r.nextInt(4);
         switch(sentido){
             case 0:
-                sentido = 2;
+                xVel = 10;
+                yVel = 0;
+                //yPos += 10;
                 break;
             case 1:
-                sentido = 3;
+                xVel = 0;
+                yVel = 10;
+                //xPos -= 10;
                 break;
             case 2:
-                sentido = 0;
+                xVel = -10;
+                yVel = 0;
+                //yPos -= 10;
                 break;
             case 3:
-                sentido = 1;
+                xVel = 0;
+                yVel = -10;
+                //xPos += 10;
                 break;
         }
     }

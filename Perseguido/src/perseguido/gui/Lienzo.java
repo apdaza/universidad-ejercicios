@@ -15,6 +15,7 @@ import java.util.Iterator;
 import java.util.TimerTask;
 import java.util.Timer;
 import javax.swing.ImageIcon;
+import perseguido.logica.Enemigo;
 import perseguido.logica.Heroe;
 import perseguido.logica.Personaje;
 import perseguido.logica.Roca;
@@ -29,12 +30,17 @@ public class Lienzo extends Canvas implements KeyListener{
     BufferedImage imgBuffer;
     String[][] matriz;
     ArrayList<Personaje> rocas;
+    ArrayList<Personaje> enemigos;
     
     public Lienzo(){
         rocas = new ArrayList<Personaje>();
+        enemigos = new ArrayList<Personaje>();
         timer = new Timer();
         timer.schedule(new Actualizador(), 0, 100);
         imgBuffer = new BufferedImage(600, 600, BufferedImage.TRANSLUCENT);
+        for(int i = 0; i < 4; i++){
+            enemigos.add(new Enemigo());
+        }
     }
        
 
@@ -65,6 +71,11 @@ public class Lienzo extends Canvas implements KeyListener{
             next.draw(miG);
 
         }
+        for (Iterator<Personaje> iterator = enemigos.iterator(); iterator.hasNext();) {
+            Personaje next = iterator.next();
+            next.draw(miG);
+
+        }
         heroe.draw(miG);
         g.drawImage(imgBuffer, 0, 0, this);
     }
@@ -89,12 +100,25 @@ public class Lienzo extends Canvas implements KeyListener{
         @Override
         public void run() {
             Iterator<Personaje> it = rocas.iterator();
+            Iterator<Personaje> it2 = enemigos.iterator();
             heroe.update();           
             while(it.hasNext()){
                 Personaje r = it.next();
                 if(r.getRect().intersects(heroe.getRect())){
                     heroe.cambiarSentido();
                     break;
+                }
+            }
+            while(it2.hasNext()){
+                Personaje r = it2.next();
+                r.update();
+                for (Iterator<Personaje> iterator = rocas.iterator(); iterator.hasNext();) {
+                    Personaje next = iterator.next();
+                    if(r.getRect().intersects(next.getRect())){
+                        r.cambiarSentido();
+                        break;
+                    }
+
                 }
             }
             repaint();
