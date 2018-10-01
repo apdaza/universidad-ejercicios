@@ -1,0 +1,91 @@
+html {
+	height: 100%
+}
+body {
+	height: 100%;
+	padding-right: 0px; 
+	padding-left: 0px; 
+	padding-top:0px;
+	padding-bottom:0px;
+	FONT-SIZE: 11px; 
+	BACKGROUND-COLOR: #ffffff;
+	MARGIN: 5px; 
+	COLOR: #333333;  
+	FONT-FAMILY: Arial, Helvetica, Sans Serif; 
+	HEIGHT: 100%;
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+}
+.error {
+	PADDING-RIGHT: 1px; 
+	PADDING-LEFT: 1px; 
+	FONT-WEIGHT: bold; 
+	FONT-SIZE: 10px; 
+	PADDING-BOTTOM: 1px; 
+	TEXT-TRANSFORM: capitalize; 
+	COLOR: #ff0000; 
+	PADDING-TOP: 1px; 
+	FONT-STYLE: italic
+}
+
+th {
+	FONT-SIZE: 12px; 
+	TEXT-ALIGN: center;
+        font-weight: bolder;
+        color: #DFDFDF;
+        background-color: #555599;
+        border: solid 1px #000000;
+}
+
+td {
+	FONT-SIZE: 11px; 
+	TEXT-ALIGN: left;
+        color: #664444;
+        border: solid 2px #ffffff;
+        padding: 3px;
+        background-color: #ccccff;
+}
+
+td.links {
+	FONT-SIZE: 11px; 
+	TEXT-ALIGN: right;
+        border: solid 2px #ffffff;
+        padding: 3px;
+        background-color: #9999ff;
+}
+
+td.td_center {
+	FONT-SIZE: 11px; 
+	TEXT-ALIGN: center;
+}
+
+
+td.td_right {
+	FONT-SIZE: 11px; 
+	TEXT-ALIGN: right;
+}
+
+td.td_label{
+	font-size:11px; 
+	text-align:right;
+	font-weight:bold;
+	color:#000000;
+}
+
+A:link {
+	FONT-WEIGHT: bold; 
+	COLOR: #ffffff; 
+	TEXT-DECORATION: none
+}
+A:visited {
+	FONT-WEIGHT: bold; 
+	COLOR: #ffffff; 
+	TEXT-DECORATION: none
+}
+A:hover {
+	FONT-WEIGHT: bold; 
+	COLOR: #ffffff; 
+	TEXT-DECORATION: none
+}
