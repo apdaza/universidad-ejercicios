@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TSX edition="Java Edition" product="Tom Sawyer Visualization" version="6.0.1">
+    <graphManager id="4">
+        <resources>
+            <shapes>
+                <ovalShape id="0"/>
+                <polygonShape id="1">
+                    <point x="0.0" y="0.0"/>
+                    <point x="1.0" y="0.0"/>
+                    <point x="1.0" y="1.0"/>
+                    <point x="0.0" y="1.0"/>
+                    <point x="0.0" y="0.06"/>
+                    <point x="0.05" y="0.06"/>
+                    <point x="0.05" y="0.95"/>
+                    <point x="0.95" y="0.95"/>
+                    <point x="0.95" y="0.05"/>
+                    <point x="0.0" y="0.05"/>
+                    <point x="0.0" y="0.0"/>
+                </polygonShape>
+            </shapes>
+            <fonts>
+                <font id="2">
+                    <name value="SansSerif"/>
+                    <bold value="false"/>
+                    <italic value="false"/>
+                    <fontHeight value="10"/>
+                </font>
+                <font id="3">
+                    <name value="SansSerif"/>
+                    <bold value="false"/>
+                    <italic value="false"/>
+                    <fontHeight value="8"/>
+                </font>
+            </fonts>
+        </resources>
+        <instances>
+            <graphs>
+                <graph id="5">
+                    <name/>
+                    <nodes>
+                        <node id="6">
+                            <name/>
+                            <center x="49.0" y="-110.0"/>
+                            <size height="260.0" width="157.0"/>
+                            <originalSize height="260.0" width="157.0"/>
+                            <shape resource="7"/>
+                            <connectors>
+                                <connector id="8">
+                                    <name/>
+                                    <size height="0.0" width="0.0"/>
+                                    <proportionalOffset x="0.0" y="0.5"/>
+                                    <constantOffset x="10.0" y="-90.0"/>
+                                    <shape resource="0"/>
+                                    <url/>
+                                    <visible value="false"/>
+                                    <graphics type="basicConnector">
+                                        <fillColor value="0 255 255"/>
+                                        <borderColor value="0 0 0"/>
+                                        <transparent value="false"/>
+                                        <drawBorder value="true"/>
+                                    </graphics>
+                                </connector>
+                                <connector id="9">
+                                    <name/>
+                                    <size height="0.0" width="0.0"/>
+                                    <proportionalOffset x="0.0" y="0.5"/>
+                                    <constantOffset x="10.0" y="-150.0"/>
+                                    <shape resource="0"/>
+                                    <url/>
+                                    <visible value="false"/>
+                                    <graphics type="basicConnector">
+                                        <fillColor value="0 255 255"/>
+                                        <borderColor value="0 0 0"/>
+                                        <transparent value="false"/>
+                                        <drawBorder value="true"/>
+                                    </graphics>
+                                </connector>
+                                <connector id="10">
+                                    <name/>
+                                    <size height="0.0" width="0.0"/>
+                                    <proportionalOffset x="0.0" y="0.5"/>
+                                    <constantOffset x="10.0" y="-160.0"/>
+                                    <shape resource="0"/>
+                                    <url/>
+                                    <visible value="false"/>
+                                    <graphics type="basicConnector">
+                                        <fillColor value="0 255 255"/>
+                                        <borderColor value="0 0 0"/>
+                                        <transparent value="false"/>
+                                        <drawBorder value="true"/>
+                                    </graphics>
+                                </connector>
+                                <connector id="11">
+                                    <name/>
+                                    <size height="0.0" width="0.0"/>
+                                    <proportionalOffset x="0.0" y="0.5"/>
+                                    <constantOffset x="10.0" y="-200.0"/>
+                                    <shape resource="0"/>
+                                    <url/>
+                                    <visible value="false"/>
+                                    <graphics type="basicConnector">
+                                        <fillColor value="0 255 255"/>
+                                        <borderColor value="0 0 0"/>
+                                        <transparent value="false"/>
+                                        <drawBorder value="true"/>
+                                    </graphics>
+                                </connector>
+                            </connectors>
+                            <url/>
+                            <visible value="true"/>
+                            <resizability value="RESIZABILITY_NO_FIT"/>
+                            <graphics type="ETGenericNodeUI">
+                                <fillColor value="204 204 204"/>
+                                <borderColor value="0 0 0"/>
+                                <transparent value="false"/>
+                                <drawBorder value="true"/>
+                                <textFont resource="2"/>
+                                <textColor value="0 0 0"/>
+                                <justification value="CENTER"/>
+                                <childGraphMark value="true"/>
+                                <PEID value="DCE.D4D0D0FC-2A2D-5F04-1D0C-796D573E2711"/>
+                            </graphics>
+                        </node>
+                        <node id="12">
+                            <name/>
+                            <center x="246.0" y="-110.0"/>
+                            <size height="260.0" width="224.0"/>
+                            <originalSize height="260.0" width="224.0"/>
+                            <shape resource="7"/>
+                            <connectors>
+                                <connector id="13">
+                                    <name/>
+                                    <size height="0.0" width="0.0"/>
+                                    <proportionalOffset x="0.0" y="0.5"/>
+                                    <constantOffset x="-4.0" y="-90.0"/>
+                                    <shape resource="0"/>
+                                    <url/>
+                                    <visible value="false"/>
+                                    <graphics type="basicConnector">
+                                        <fillColor value="0 255 255"/>
+                                        <borderColor value="0 0 0"/>
+                                        <transparent value="false"/>
+                                        <drawBorder value="true"/>
+                                    </graphics>
+                                </connector>
+                                <connector id="14">
+                                    <name/>
+                                    <size height="0.0" width="0.0"/>
+                                    <proportionalOffset x="0.0" y="0.5"/>
+                                    <constantOffset x="-4.0" y="-130.0"/>
+                                    <shape resource="0"/>
+                                    <url/>
+                                    <visible value="false"/>
+                                    <graphics type="basicConnector">
+                                        <fillColor value="0 255 255"/>
+                                        <borderColor value="0 0 0"/>
+                                        <transparent value="false"/>
+                                        <drawBorder value="true"/>
+                                    </graphics>
+                                </connector>
+                            </connectors>
+                            <url/>
+                            <visible value="true"/>
+                            <resizability value="RESIZABILITY_NO_FIT"/>
+                            <graphics type="ETGenericNodeUI">
+                                <fillColor value="204 204 204"/>
+                                <borderColor value="0 0 0"/>
+                                <transparent value="false"/>
+                                <drawBorder value="true"/>
+                                <textFont resource="2"/>
+                                <textColor value="0 0 0"/>
+                                <justification value="CENTER"/>
+                                <childGraphMark value="true"/>
+                                <PEID value="DCE.F45B54A1-EC74-5987-C8BF-80BCE9D5B4E4"/>
+                            </graphics>
+                        </node>
+                        <node id="15">
+                            <name/>
+                            <center x="439.0" y="-110.0"/>
+                            <size height="260.0" width="150.0"/>
+                            <originalSize height="260.0" width="150.0"/>
+                            <shape resource="7"/>
+                            <connectors>
+                                <connector id="16">
+                                    <name/>
+                                    <size height="0.0" width="0.0"/>
+                                    <proportionalOffset x="0.0" y="0.5"/>
+                                    <constantOffset x="-4.0" y="-160.0"/>
+                                    <shape resource="0"/>
+                                    <url/>
+                                    <visible value="false"/>
+                                    <graphics type="basicConnector">
+                                        <fillColor value="0 255 255"/>
+                                        <borderColor value="0 0 0"/>
+                                        <transparent value="false"/>
+                                        <drawBorder value="true"/>
+                                    </graphics>
+                                </connector>
+                                <connector id="17">
+                                    <name/>
+                                    <size height="0.0" width="0.0"/>
+                                    <proportionalOffset x="0.0" y="0.5"/>
+                                    <constantOffset x="-4.0" y="-200.0"/>
+                                    <shape resource="0"/>
+                                    <url/>
+                                    <visible value="false"/>
+                                    <graphics type="basicConnector">
+                                        <fillColor value="0 255 255"/>
+                                        <borderColor value="0 0 0"/>
+                                        <transparent value="false"/>
+                                        <drawBorder value="true"/>
+                                    </graphics>
+                                </connector>
+                            </connectors>
+                            <url/>
+                            <visible value="true"/>
+                            <resizability value="RESIZABILITY_NO_FIT"/>
+                            <graphics type="ETGenericNodeUI">
+                                <fillColor value="204 204 204"/>
+                                <borderColor value="0 0 0"/>
+                                <transparent value="false"/>
+                                <drawBorder value="true"/>
+                                <textFont resource="2"/>
+                                <textColor value="0 0 0"/>
+                                <justification value="CENTER"/>
+                                <childGraphMark value="true"/>
+                                <PEID value="DCE.3AC598E4-F768-6E14-F804-54599A1CF72C"/>
+                            </graphics>
+                        </node>
+                        <node id="18">
+                            <name/>
+                            <center x="606.9048387096774" y="-110.07540322580647"/>
+                            <size height="260.15080645161294" width="175.80967741935478"/>
+                            <originalSize height="260.15080645161294" width="175.80967741935478"/>
+                            <shape resource="7"/>
+                            <url/>
+                            <visible value="true"/>
+                            <resizability value="RESIZABILITY_NO_FIT"/>
+                            <graphics type="ETGenericNodeUI">
+                                <fillColor value="204 204 204"/>
+                                <borderColor value="0 0 0"/>
+                                <transparent value="false"/>
+                                <drawBorder value="true"/>
+                                <textFont resource="2"/>
+                                <textColor value="0 0 0"/>
+                                <justification value="CENTER"/>
+                                <childGraphMark value="true"/>
+                                <PEID value="DCE.959B4C01-E244-3F12-0F6A-595860ED9AAC"/>
+                            </graphics>
+                        </node>
+                        <node id="19">
+                            <name/>
+                            <center x="227.0" y="-115.0"/>
+                            <size height="144.0" width="613.0"/>
+                            <originalSize height="144.0" width="613.0"/>
+                            <shape resource="1"/>
+                            <nodeLabels>
+                                <nodeLabel id="20">
+                                    <name value="[SQLException e]"/>
+                                    <size height="23.0" width="129.0"/>
+                                    <proportionalOffset x="-0.5807504078303426" y="-0.1388888888888889"/>
+                                    <constantOffset x="0.0" y="0.0"/>
+                                    <url/>
+                                    <visible value="true"/>
+                                    <resizability value="RESIZABILITY_TIGHT_FIT"/>
+                                    <graphics type="ETGenericNodeLabelUI">
+                                        <fillColor value="255 255 255"/>
+                                        <borderColor value="0 0 0"/>
+                                        <transparent value="true"/>
+                                        <drawBorder value="false"/>
+                                        <textFont resource="3"/>
+                                        <textColor value="0 0 0"/>
+                                        <justification value="CENTER"/>
+                                        <PEID value="DCE.A8C43174-12EB-ADB7-2C41-31AC45DC9176"/>
+                                    </graphics>
+                                </nodeLabel>
+                            </nodeLabels>
+                            <url/>
+                            <visible value="true"/>
+                            <resizability value="RESIZABILITY_NO_FIT"/>
+                            <graphics type="ETGenericNodeUI">
+                                <fillColor value="204 204 204"/>
+                                <borderColor value="0 0 0"/>
+                                <transparent value="false"/>
+                                <drawBorder value="true"/>
+                                <textFont resource="2"/>
+                                <textColor value="0 0 0"/>
+                                <justification value="CENTER"/>
+                                <childGraphMark value="true"/>
+                                <PEID value="DCE.305E5ABF-A0AE-2B3D-3982-B6E78D5FE0C3"/>
+                            </graphics>
+                        </node>
+                    </nodes>
+                    <edges>
+                        <edge id="21" source="6" target="12">
+                            <sourceConnector value="8"/>
+                            <targetConnector value="13"/>
+                            <sourceClipping/>
+                            <targetClipping/>
+                            <edgeLabels>
+                                <edgeLabel id="22">
+                                    <name value="public int  executeUpdate(  )"/>
+                                    <size height="23.0" width="211.0"/>
+                                    <constantOffset x="0.0" y="10.0"/>
+                                    <distanceFromSource value="0.5"/>
+                                    <url/>
+                                    <visible value="true"/>
+                                    <resizability value="RESIZABILITY_NO_FIT"/>
+                                    <graphics type="ETGenericEdgeLabelUI">
+                                        <fillColor value="255 255 255"/>
+                                        <borderColor value="0 0 0"/>
+                                        <transparent value="true"/>
+                                        <drawBorder value="false"/>
+                                        <textFont resource="3"/>
+                                        <textColor value="0 0 0"/>
+                                        <justification value="CENTER"/>
+                                        <PEID value="DCE.295B0878-03DD-1D4B-639B-CE5D856A33E6"/>
+                                    </graphics>
+                                </edgeLabel>
+                            </edgeLabels>
+                            <url/>
+                            <visible value="true"/>
+                            <graphics type="relationEdge">
+                                <lineColor value="0 0 0"/>
+                                <arrowWidth value="6.0"/>
+                                <arrowHeight value="6.0"/>
+                                <arrowType value="NO_ARROW"/>
+                                <bendWidth value="5.0"/>
+                                <bendHeight value="5.0"/>
+                                <antiAliasing value="false"/>
+                                <PEID value="DCE.E5077C8E-70B9-1ABF-F9C5-62F6EE510157"/>
+                            </graphics>
+                        </edge>
+                        <edge id="23" source="12" target="6">
+                            <sourceConnector value="14"/>
+                            <targetConnector value="9"/>
+                            <sourceClipping/>
+                            <targetClipping/>
+                            <url/>
+                            <visible value="true"/>
+                            <graphics type="relationEdge">
+                                <lineColor value="0 0 0"/>
+                                <arrowWidth value="6.0"/>
+                                <arrowHeight value="6.0"/>
+                                <arrowType value="NO_ARROW"/>
+                                <bendWidth value="5.0"/>
+                                <bendHeight value="5.0"/>
+                                <antiAliasing value="false"/>
+                                <PEID value="DCE.0323E9D8-F1F3-81D2-99ED-34566E777C77"/>
+                            </graphics>
+                        </edge>
+                        <edge id="24" source="6" target="15">
+                            <sourceConnector value="10"/>
+                            <targetConnector value="16"/>
+                            <sourceClipping/>
+                            <targetClipping/>
+                            <edgeLabels>
+                                <edgeLabel id="25">
+                                    <name value="public void  println( Object x )"/>
+                                    <size height="23.0" width="225.0"/>
+                                    <constantOffset x="0.0" y="10.0"/>
+                                    <distanceFromSource value="0.5"/>
+                                    <url/>
+                                    <visible value="true"/>
+                                    <resizability value="RESIZABILITY_NO_FIT"/>
+                                    <graphics type="ETGenericEdgeLabelUI">
+                                        <fillColor value="255 255 255"/>
+                                        <borderColor value="0 0 0"/>
+                                        <transparent value="true"/>
+                                        <drawBorder value="false"/>
+                                        <textFont resource="3"/>
+                                        <textColor value="0 0 0"/>
+                                        <justification value="CENTER"/>
+                                        <PEID value="DCE.BC532803-3364-36CC-3EAA-3F2D11B12EA9"/>
+                                    </graphics>
+                                </edgeLabel>
+                            </edgeLabels>
+                            <url/>
+                            <visible value="true"/>
+                            <graphics type="relationEdge">
+                                <lineColor value="0 0 0"/>
+                                <arrowWidth value="6.0"/>
+                                <arrowHeight value="6.0"/>
+                                <arrowType value="NO_ARROW"/>
+                                <bendWidth value="5.0"/>
+                                <bendHeight value="5.0"/>
+                                <antiAliasing value="false"/>
+                                <PEID value="DCE.4B3817B9-33BA-1DA2-5763-02C64BED94E0"/>
+                            </graphics>
+                        </edge>
+                        <edge id="26" source="15" target="6">
+                            <sourceConnector value="17"/>
+                            <targetConnector value="11"/>
+                            <sourceClipping/>
+                            <targetClipping/>
+                            <url/>
+                            <visible value="true"/>
+                            <graphics type="relationEdge">
+                                <lineColor value="0 0 0"/>
+                                <arrowWidth value="6.0"/>
+                                <arrowHeight value="6.0"/>
+                                <arrowType value="NO_ARROW"/>
+                                <bendWidth value="5.0"/>
+                                <bendHeight value="5.0"/>
+                                <antiAliasing value="false"/>
+                                <PEID value="DCE.5F00E2F2-0E32-4145-BA23-29F077D1D906"/>
+                            </graphics>
+                        </edge>
+                    </edges>
+                    <margins>
+                        <proportional bottom="0.0" left="0.0" right="0.0" top="0.0"/>
+                        <constant bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+                    </margins>
+                    <url/>
+                    <graphics type="basicGraph">
+                        <backgroundColor value="255 255 255"/>
+                        <imageUsed/>
+                        <imageTiled value="false"/>
+                        <imageStyle value="WORLD_OFFSET"/>
+                        <imageMinTileStep value="25"/>
+                        <imageX value="0.0"/>
+                        <imageY value="0.0"/>
+                        <drawNodesBeforeEdges value="true"/>
+                    </graphics>
+                </graph>
+            </graphs>
+            <rootGraph value="5"/>
+        </instances>
+    </graphManager>
+    <serviceInput type="jlayout">
+        <defaults>
+            <optionDefaults type="connector">
+                <optionDefault name="all:all:connector:movable" value="false"/>
+            </optionDefaults>
+            <optionDefaults type="edge">
+                <optionDefault name="all:all:edge:sourceAttachmentSide" value="ATTACHMENT_SIDE_ANY"/>
+                <optionDefault name="layout:all:edge:embedded" value="true"/>
+                <optionDefault name="all:all:edge:targetAttachmentSide" value="ATTACHMENT_SIDE_ANY"/>
+                <optionDefault name="layout:symmetric:edge:desiredLength" value="1.0"/>
+            </optionDefaults>
+            <optionDefaults type="node">
+                <optionDefault name="routing:all:node:fixedPosition" value="false"/>
+                <optionDefault name="routing:all:node:fixedSize" value="false"/>
+                <optionDefault name="all:all:node:attachmentSide" value="ATTACHMENT_SIDE_ANY"/>
+                <optionDefault name="layout:all:node:embedded" value="true"/>
+                <optionDefault name="layout:symmetric:node:constrained" value="false"/>
+            </optionDefaults>
+            <optionDefaults type="edgeLabel">
+                <optionDefault name="labeling:all:edgeLabel:fixed" value="false"/>
+                <optionDefault name="labeling:all:edgeLabel:association" value="EDGE_LABEL_ASSOCIATION_CENTER"/>
+                <optionDefault name="labeling:all:edgeLabel:region" value="EDGE_LABEL_REGION_ANY"/>
+            </optionDefaults>
+            <optionDefaults type="graph">
+                <optionDefault name="layout:all:graph:incrementalCompaction" value="true"/>
+                <optionDefault name="layout:orthogonal:graph:verticalSpacingBetweenNodes" value="20.0"/>
+                <optionDefault name="layout:orthogonal:graph:keepNodeSizes" value="false"/>
+                <optionDefault name="layout:hierarchical:graph:levelAlignment" value="CENTER_ALIGNED"/>
+                <optionDefault name="layout:all:graph:disconnectedNodesConstantSpacing" value="20.0"/>
+                <optionDefault name="layout:hierarchical:graph:undirected" value="false"/>
+                <optionDefault name="layout:hierarchical:graph:horizontalSpacingBetweenEdges" value="12.0"/>
+                <optionDefault name="layout:hierarchical:graph:proportionalHorizontalSpacingBetweenNodes" value="0.1"/>
+                <optionDefault name="layout:all:graph:componentProportionalSpacing" value="0.05"/>
+                <optionDefault name="layout:hierarchical:graph:variableLevelSpacing" value="true"/>
+                <optionDefault name="layout:all:graph:componentAspectRatio" value="1.0"/>
+                <optionDefault name="layout:orthogonal:graph:horizontalSpacingBetweenNodes" value="20.0"/>
+                <optionDefault name="layout:hierarchical:graph:levelDirection" value="DIRECTION_TOP_TO_BOTTOM"/>
+                <optionDefault name="layout:hierarchical:graph:verticalSpacingBetweenEdges" value="12.0"/>
+                <optionDefault name="layout:hierarchical:graph:constantHorizontalSpacingBetweenNodes" value="20.0"/>
+                <optionDefault name="layout:orthogonal:graph:aspectRatio" value="0.0"/>
+                <optionDefault name="layout:orthogonal:graph:verticalSpacingBetweenEdges" value="12.0"/>
+                <optionDefault name="layout:all:graph:disconnectedNodesProportionalSpacing" value="0.05"/>
+                <optionDefault name="layout:symmetric:graph:nodeSpacing" value="10.0"/>
+                <optionDefault name="layout:all:graph:componentConstantSpacing" value="20.0"/>
+                <optionDefault name="layout:all:graph:layoutStyle" value="LAYOUT_STYLE_HIERARCHICAL"/>
+                <optionDefault name="layout:hierarchical:graph:constantVerticalSpacingBetweenNodes" value="20.0"/>
+                <optionDefault name="layout:orthogonal:graph:horizontalSpacingBetweenEdges" value="12.0"/>
+                <optionDefault name="layout:all:graph:detectDisconnectedNodes" value="true"/>
+                <optionDefault name="layout:hierarchical:graph:quality" value="LAYOUT_QUALITY_MEDIUM"/>
+                <optionDefault name="layout:orthogonal:graph:strictIncremental" value="false"/>
+                <optionDefault name="layout:symmetric:graph:randomSeed" value="1"/>
+                <optionDefault name="layout:hierarchical:graph:keepNodeSizes" value="false"/>
+                <optionDefault name="layout:hierarchical:graph:orthogonalRouting" value="false"/>
+                <optionDefault name="layout:symmetric:graph:quality" value="LAYOUT_QUALITY_MEDIUM"/>
+                <optionDefault name="layout:orthogonal:graph:quality" value="LAYOUT_QUALITY_MEDIUM"/>
+                <optionDefault name="layout:all:graph:detectComponents" value="true"/>
+                <optionDefault name="layout:orthogonal:graph:useCombLabeling" value="true"/>
+                <optionDefault name="layout:hierarchical:graph:proportionalVerticalSpacingBetweenNodes" value="0.1"/>
+                <optionDefault name="layout:hierarchical:graph:edgeSpacing" value="12.0"/>
+            </optionDefaults>
+            <optionDefaults type="connectorLabel">
+                <optionDefault name="labeling:all:connectorLabel:fixed" value="false"/>
+                <optionDefault name="labeling:all:connectorLabel:region" value="CONNECTOR_LABEL_REGION_ANY"/>
+            </optionDefaults>
+            <optionDefaults type="nodeLabel">
+                <optionDefault name="labeling:all:nodeLabel:region" value="NODE_LABEL_REGION_ANY"/>
+                <optionDefault name="labeling:all:nodeLabel:location" value="NODE_LABEL_LOCATION_CENTER"/>
+                <optionDefault name="labeling:all:nodeLabel:orientation" value="NODE_LABEL_ORIENTATION_OUTSIDE"/>
+                <optionDefault name="labeling:all:nodeLabel:fixed" value="false"/>
+            </optionDefaults>
+            <optionDefaults type="graphManager">
+                <optionDefault name="routing:all:graphManager:fixedPosition" value="true"/>
+                <optionDefault name="routing:all:graphManager:horizontalSpacingBetweenEdges" value="12.0"/>
+                <optionDefault name="routing:all:graphManager:verticalSpacingBetweenNodes" value="20.0"/>
+                <optionDefault name="layout:all:graphManager:incrementalLayout" value="false"/>
+                <optionDefault name="layout:all:graphManager:horizontalSpacingBetweenIntergraphEdges" value="12.0"/>
+                <optionDefault name="all:all:graphManager:performLabeling" value="true"/>
+                <optionDefault name="routing:all:graphManager:verticalSpacingBetweenEdges" value="12.0"/>
+                <optionDefault name="routing:all:graphManager:horizontalSpacingBetweenNodes" value="20.0"/>
+                <optionDefault name="layout:all:graphManager:verticalSpacingBetweenIntergraphEdges" value="12.0"/>
+                <optionDefault name="routing:all:graphManager:fixedSize" value="true"/>
+            </optionDefaults>
+        </defaults>
+        <option context="none" name="all:all:none:graphManager" value="4"/>
+    </serviceInput>
+    <preferences>
+        <preference name="maximumZoomLevel" value="50.0"/>
+        <preference name="interactiveZoomSensitivity" value="200.0"/>
+        <preference name="panningSensitivity" value="1.0"/>
+        <preference name="preventResizeInversion" value="false"/>
+        <preference name="drawInvisibleOnDragging" value="false"/>
+        <preference name="compressMetaEdges" value="true"/>
+        <preference name="edgeNavigationTripDuration" value="300"/>
+        <preference name="edgeNavigationFrameCount" value="10"/>
+        <preference name="autoHideScrollbars" value="true"/>
+        <preference name="hitToleranceThreshold" value="10"/>
+        <preference name="opaqueMovement" value="true"/>
+        <preference name="geometricAdjustment" value="true"/>
+        <preference name="reconnectEdgeSensitivity" value="10.0"/>
+        <preference name="edgeNavigationBlinkDuration" value="500"/>
+        <preference name="undoStackSize" value="50"/>
+        <preference name="minimumZoomLevel" value="1.0E-4"/>
+        <preference name="inPlaceEditing" value="true"/>
+        <preference name="tooltipsEnabled" value="true"/>
+        <preference name="hitTolerance" value="5"/>
+        <preference name="partialSelection" value="true"/>
+    </preferences>
+</TSX>
