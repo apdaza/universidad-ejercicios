@@ -10,7 +10,8 @@ class Heroe(Sprite):
 		self.image = self.imagenes[0]
 		self.rect = self.image.get_rect()
 		self.rect.move_ip(200, 10)
-        
+		self.vida = 100
+
 	def update(self):
 		teclas = pygame.key.get_pressed()
 		if teclas[K_LEFT] and self.rect.x>=10:
