@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="Juego mamut">
+		<meta name="keywords" content="canvas colisiones jquery ajax">
+		<meta name="author" content="Marcela Espinosa">
+		<title>El Mamut</title>
+		
+		<link rel="stylesheet" type="text/css" href="estilos/default.css" media="screen">
+		<script src="js/jquery-1.11.0.min.js" language="JavaScript1.2"></script>
+		<script src="js/heroe.js" language="JavaScript1.2"></script>
+		<script src="js/enemigo.js" language="JavaScript1.2"></script>
+		<script src="js/punto.js" language="JavaScript1.2"></script>
+		<script src="js/script.js" language="JavaScript1.2"></script>
+
+		
+		
+	</head>
+	<body>
+		<section>
+			<canvas id="mi_canvas" width="640" height="480">
+				Tu navegador no es compatible
+			</canvas>			
+		</section>
+		<section>
+			<div id="popup" style="display: none;">
+				<div class="content-popup">
+					<div class="close"><a href="#" id="close"><img src="imagenes/close.png"/></a></div>
+					<div>
+					   <h2>Teclas de juego</h2>
+					   <img src="imagenes/teclado.png"/>
+					   <h2>Creditos</h2>
+					   <p>Lilia Marcela Espinosa Rodríguez</p>
+						<p>UNIR</p>
+						<p>Computación en el Cliente</p>
+					</div>
+				</div>
+			</div>
+			<h1>EL PERSEGUIDO</h1>
+			<button id="instrucciones">Ver Instrucciones</button><br>
+			<button id="iniciar">Iniciar</button>
+		</section>
+		<audio id="pierde">
+			<source src="sonidos/pierde_vida.ogg" type="audio/ogg">
+			<source src="sonidos/pierde_vida.mp3" type="audio/mpeg">
+			<source src="sonidos/pierde_vida.wav" type="audio/wav">
+			Tu navegador no es compatible
+		</audio>
+		
+		
+		<img id="B1" src="imagenes/B1.png"/>
+		<img id="B2" src="imagenes/B2.png"/>
+		<img id="B3" src="imagenes/B3.png"/>
+		<img id="F1" src="imagenes/F1.png"/>
+		<img id="F2" src="imagenes/F2.png"/>
+		<img id="F3" src="imagenes/F3.png"/>
+		<img id="D1" src="imagenes/D1.png"/>
+		<img id="D2" src="imagenes/D2.png"/>
+		<img id="D3" src="imagenes/D3.png"/>
+		<img id="I1" src="imagenes/I1.png"/>
+		<img id="I2" src="imagenes/I2.png"/>
+		<img id="I3" src="imagenes/I3.png"/>
+		<img id="pezI" src="imagenes/pezI.png"/>
+		<img id="pezD" src="imagenes/pezD.png"/>
+		<img id="muro" src="imagenes/muro.png"/>
+		<img id="punto" src="imagenes/punto.png"/>
+		
+		
+	</body>
+</html>

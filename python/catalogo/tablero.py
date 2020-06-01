@@ -5,12 +5,12 @@ from random import *
 
 class Tablero(Sprite):
     def reiniciar(self, tam):
-        self.lista = [(x * 32, y) for x in range(0, tam[0] / 32) for y in [0, tam[1] - 32]]
-        self.lista += [(x, y * 32) for x in [0, tam[0] - 32] for y in range(0, tam[1] / 32)]
+        self.lista = [(x * 32, y) for x in range(0, int(tam[0] / 32)) for y in [0, tam[1] - 32]]
+        self.lista += [(x, y * 32) for x in [0, tam[0] - 32] for y in range(0, int(tam[1] / 32))]
         i = 0
         cant = randint(20, 40)
         while i < cant:
-            tupla = (randint(0, tam[0] / 32) * 32, randint(0, tam[1] / 32) * 32)
+            tupla = (randint(0, int(tam[0] / 32)) * 32, randint(0, int(tam[1] / 32)) * 32)
             if tupla not in self.lista or tupla == (32, 32):
                 self.lista.append(tupla)
                 i += 1
@@ -25,5 +25,4 @@ class Tablero(Sprite):
         self.pos_heroe = (0, 0)
         while self.pos_heroe in self.lista:
             self.pos_heroe = (randint(0, tam[0] / 32) * 32, randint(0, tam[1] / 32) * 32)
-            print self.pos_heroe
-
+            print (self.pos_heroe)
