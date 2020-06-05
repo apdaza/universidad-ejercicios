@@ -10,33 +10,29 @@ function inicio(){
 	contexto = miCanvas.getContext("2d");
 	buffer = document.createElement("canvas");
 	heroe = new Heroe();
-	puntos = [new Punto(), new Punto(), new Punto()];
-    $('#viento')[0].play();
+	puntos = [new Punto(), new Punto()];
+
 	enemigos = [new Enemigo(), new Enemigo(),
 		  new Enemigo(), new Enemigo(),
-		  new Enemigo(), new Enemigo()];
-
-    muros = [new Muro(10,10), new Muro(10,420),
-             new Muro(560,10), new Muro(560,420),
-             new Muro(300,220)];
-	run();
-
+		  new Enemigo()];
+	run();	
+	
 	$('#instrucciones').click(function(){
         $('#popup').fadeIn('slow');
         $('.popup-overlay').fadeIn('slow');
         $('.popup-overlay').height($(window).height());
         return false;
     });
-
+    
     $('#close').click(function(){
         $('#popup').fadeOut('slow');
         $('.popup-overlay').fadeOut('slow');
         return false;
     });
-
-    $("#iniciar").click(function(){
+    
+    $("#iniciar").click(function(){	
 		if(jugando==false)
-			inicio();
+			inicio();	
 	});
 }
 
@@ -49,61 +45,44 @@ function capturaTeclado(event){
 		heroe.actualizar('derecha');
 	if(event.which==37 || event.which==65)
 		heroe.actualizar('izquierda');
-
+	
 }
 
-function run(){
+function run(){ 
 	buffer.width = miCanvas.width;
 	buffer.height = miCanvas.height;
 	contextoBuffer = buffer.getContext("2d");
-
-	if(jugando){
+		 
+	if(jugando){  
 		contextoBuffer.clearRect(0,0,buffer.width,buffer.height);
 
 		heroe.dibujar(contextoBuffer);
 
 		for(i=0;i<puntos.length;i++){
 			puntos[i].dibujar(contextoBuffer);
-
+			
 			if(heroe.colision(puntos[i].x,puntos[i].y)){
 				puntos[i].actualizar();
 				heroe.puntos++;
 			}
 		}
-
-        for(i=0;i<muros.length;i++){
-			muros[i].dibujar(contextoBuffer);
-			if(muros[i].colision(heroe.x,heroe.y)){
-				heroe.reubicar();
-            }
-            for(e=0;e<enemigos.length;e++){
-                if(muros[i].colision(enemigos[e].x,enemigos[e].y)){
-                    enemigos[e].reubicar();
-                }
-            }
-            for(e=0;e<puntos.length;e++){
-                if(muros[i].colision(puntos[e].x,puntos[e].y)){
-                    puntos[e].actualizar();
-                }
-            }
-		}
-
 		for(i=0;i<enemigos.length;i++){
 			enemigos[i].dibujar(contextoBuffer);
 			enemigos[i].actualizar(heroe,enemigos);
 			if(heroe.colision(enemigos[i].x,enemigos[i].y)){
 				heroe.vida--;
 				enemigos[i].reubicar();
+				$('#pierde')[0].play();
 			}
 		}
-
+	
 		if(heroe.vida <= 0)
 			jugando = false;
-
+		
 		contexto.clearRect(0,0,miCanvas.width,miCanvas.height);
 		contexto.drawImage(buffer, 0, 0);
 		setTimeout("run()",20);
-
+		
 	}else{
 		contextoBuffer.clearRect(0,0,buffer.width,buffer.height);
 		contextoBuffer.fillStyle = "#ffffff";
@@ -111,12 +90,14 @@ function run(){
 		heroe.vida = 0;
 		heroe.dibujar(contextoBuffer);
 		contextoBuffer.font = "50px sans-serif";
-		contextoBuffer.fillText("FIN DEL JUEGO", 200, 440);
+		contextoBuffer.fillText("GAMEOVER", 300, 440);
 		contextoBuffer.fillStyle = "#ff0000";
 		contextoBuffer.font = "15px sans-serif";
-		contextoBuffer.fillText("intenta de nuevo", 450, 460);
+		contextoBuffer.fillText("try again", 550, 460);
 		contexto.clearRect(0,0,miCanvas.width,miCanvas.height);
 		contexto.drawImage(buffer, 0, 0);
 	}
-
+	
 }
+
+

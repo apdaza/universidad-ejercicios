@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="Juego juane de gallina">
+		<meta name="keywords" content="canvas colisiones jquery ajax">
+		<meta name="author" content="Diego Daza">
+		<title>Amazonas, juane de gallina</title>
+
+		<link rel="stylesheet" type="text/css" href="estilos/default.css" media="screen">
+		<script src="js/jquery-1.11.0.min.js" language="JavaScript1.2"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.3.5/sweetalert2.all.min.js"></script>
+    <script src="js/utiles.js" language="JavaScript1.2"></script>
+		<script src="js/heroe.js" language="JavaScript1.2"></script>
+		<script src="js/enemigo.js" language="JavaScript1.2"></script>
+		<script src="js/punto.js" language="JavaScript1.2"></script>
+    <script src="js/piso.js" language="JavaScript1.2"></script>
+		<script src="js/hueso.js" language="JavaScript1.2"></script>
+		<script src="js/objeto.js" language="JavaScript1.2"></script>
+		<script src="js/script.js" language="JavaScript1.2"></script>
+
+
+
+	</head>
+	<body>
+		<section>
+			<canvas id="mi_canvas" width="740" height="480">
+				Tu navegador no es compatible
+			</canvas>
+		</section>
+		<section>
+			<div id="popup" style="display: none;">
+				<div class="content-popup">
+					<div class="close"><a href="#" id="close"><img src="imagenes/close.png"/></a></div>
+					<div>
+					   <h2>Teclas de juego</h2>
+					   <img src="imagenes/teclado.png"/>
+					   <h2>Creditos</h2>
+					   <p>Diego Leonardo Daza Espinosa</p>
+						<p>LEO</p>
+						<p>Sociales</p>
+					</div>
+				</div>
+			</div>
+			<h1>Amazonas, juane de gallina</h1>
+      <hr>
+      <ul>
+				<li>Juane el <i>Zombie</i> está en el Amazonas</li>
+				<li>Tu conocimiento puede ayudarlo</li>
+				<li>Contesta adecuadamente las preguntas</li>
+			</ul>
+      <hr>
+      <button id="instrucciones">Ver Instrucciones</button><br>
+			<button id="iniciar">Iniciar</button>
+      <blockquote>Cerebro!!!</blockquote>
+		</section>
+    <audio id="viento" autoplay>
+			<source src="sonidos/viento.ogg" type="audio/ogg">
+			<source src="sonidos/viento.mp3" type="audio/mpeg">
+			Tu navegador no es compatible
+		</audio>
+
+
+		<img id="Walk1" src="imagenes/personaje/Walk (1).png"/>
+		<img id="Walk2" src="imagenes/personaje/Walk (2).png"/>
+		<img id="Walk3" src="imagenes/personaje/Walk (3).png"/>
+		<img id="Walk4" src="imagenes/personaje/Walk (4).png"/>
+		<img id="Walk5" src="imagenes/personaje/Walk (5).png"/>
+		<img id="Walk6" src="imagenes/personaje/Walk (6).png"/>
+		<img id="Walk7" src="imagenes/personaje/Walk (7).png"/>
+		<img id="Walk8" src="imagenes/personaje/Walk (8).png"/>
+		<img id="Walk9" src="imagenes/personaje/Walk (9).png"/>
+		<img id="Walk10" src="imagenes/personaje/Walk (10).png"/>
+
+		<img id="Dead" src="imagenes/personaje/Dead (12).png"/>
+
+		<img id="Bone1" src="imagenes/objetos/Bone (1).png"/>
+		<img id="Bone2" src="imagenes/objetos/Bone (2).png"/>
+		<img id="Bone3" src="imagenes/objetos/Bone (3).png"/>
+		<img id="Bone4" src="imagenes/objetos/Bone (4).png"/>
+
+		<img id="Object1" src="imagenes/objetos/Crate.png"/>
+		<img id="Object2" src="imagenes/objetos/DeadBush.png"/>
+		<img id="Object3" src="imagenes/objetos/Sign.png"/>
+		<img id="Object4" src="imagenes/objetos/ArrowSign.png"/>
+		<img id="Object5" src="imagenes/objetos/Skeleton.png"/>
+		<img id="Object6" src="imagenes/objetos/Tree.png"/>
+		<img id="Object7" src="imagenes/objetos/Bush (1).png"/>
+		<img id="Object8" src="imagenes/objetos/Bush (2).png"/>
+
+		<img id="fondo" src="imagenes/fondo.png"/>
+
+		<img id="TombStone1" src="imagenes/objetos/TombStone (1).png"/>
+		<img id="TombStone2" src="imagenes/objetos/TombStone (2).png"/>
+
+		<img id="piso" src="imagenes/objetos/Tile (2).png"/>
+
+
+
+	</body>
+</html>

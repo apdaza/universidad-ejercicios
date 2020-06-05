@@ -1,7 +1,7 @@
-function Muro(){
+function Muro(x, y){
 	this.img = $("#vortex1")[0];
-	this.x = aleatorio(0,620);
-  this.y = aleatorio(0,460);
+	this.x = x; //aleatorio(0,620);
+  this.y = y; //aleatorio(0,460);
 
 	this.dibujar = function(ctx){
 		ctx.drawImage(this.img,this.x,this.y);
