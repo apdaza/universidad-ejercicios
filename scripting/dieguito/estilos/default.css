@@ -48,7 +48,9 @@ blockquote {
 }
 
 #Walk1, #Walk2, #Walk3, #Walk4, #Walk5, #Walk6, #Walk7, #Walk8, #Walk9, #Walk10,
-#Bone1,#Bone2,#Bone3,#Bone4,#Object1,#Object2,#Object3,#Object4,#Object5,#Object6,#Object7,
+#Back1, #Back2, #Back3, #Back4, #Back5, #Back6, #Back7, #Back8, #Back9, #Back10,
+#Dead, #TombStone1, #TombStone2, #Bone1,#Bone2,#Bone3,#Bone4,
+#Object1,#Object2,#Object3,#Object4,#Object5,#Object6,#Object7, #Object8,
 #piso, #fondo {
 	display:none;
 }

@@ -30,26 +30,26 @@ function inicio(){
              new Objeto(800,350,6),new Objeto(1000,350,7),new Objeto(1200,350,5)];
 
 
-  preguntas = [["el anazonas tiene 264.945 habitantes","v"],
-               ["amazonas es una región de Colombia","v"],
-               ["una de sus comidas típicas es el juane de gallina","v"],
-               ["es la región mas grande de Colombia","v"],
-               ["su capital es Leticia","v"],
-               ["esa religión NO le pertenece a áfrica","v"],
-               ["tiene mas de 1 comida típica","v"],
-               ["tiene 7 ríos que se clasifican como los mas importantes","v"],
-               ["estuvo en la guerra colombo peruana","v"],
-               ["en el país que se ubica es uno de los países que mas requisas tiene","v"],
-               ["esa región NO es de Colombia","f"],
-               ["todos tienen el mismo color favorito en esa región","f"],
-               ["esa región no existe","f"],
-               ["en esa región no hay agua","f"],
-               ["en esta región no hay nada","f"],
-               ["no tiene comidas típicas","f"],
-               ["en esa región es una región es inhóspita","f"],
-               ["tu vives solo en esta región","f"],
-               ["esta región te vuelve un caracol","f"],
-               ["esta región es prohibida","f"]];
+  preguntas = [["El Amazonas tiene 264.945 habitantes","v"],
+               ["Amazonas es una región de Colombia","v"],
+               ["Una de sus comidas típicas es el juane de gallina","v"],
+               ["Es la región mas grande de Colombia","v"],
+               ["Su capital es Leticia","v"],
+               ["Esa región NO le pertenece a áfrica","v"],
+               ["Tiene mas de 1 comida típica","v"],
+               ["Tiene 7 ríos que se clasifican como los mas importantes","v"],
+               ["Estuvo en la guerra colombo - peruana","v"],
+               ["En el país que se ubica es uno de los países que mas riquesas tiene","v"],
+               ["Esa región NO es de Colombia","f"],
+               ["Todos tienen el mismo color favorito en esa región","f"],
+               ["Esa región no existe","f"],
+               ["En esa región no hay agua","f"],
+               ["En esta región no hay nada","f"],
+               ["No tiene comidas típicas","f"],
+               ["Es una región es inhóspita","f"],
+               ["Tu vives solo en esta región","f"],
+               ["Esta región te vuelve un caracol","f"],
+               ["Esta región es prohibida","f"]];
 
 
 
@@ -85,6 +85,7 @@ function capturaTeclado(event){
   }
   if(preguntando){
     if(event.which==86){
+			$('#cripta')[0].pause();
       if(preguntas[pregunta][1]=="v"){
         heroe.puntos+=10;
       }else{
@@ -95,6 +96,7 @@ function capturaTeclado(event){
       setTimeout("run()",20);
     }
     if(event.which==70){
+			$('#cripta')[0].pause();
       if(preguntas[pregunta][1]=="f"){
         heroe.puntos+=10;
       }else{
@@ -142,12 +144,13 @@ function run(){
 			puntos[i].dibujar(contextoBuffer);
 
 			if(heroe.colision(puntos[i].x,puntos[i].y)){
+				$('#cripta')[0].play();
         pregunta = aleatorio(0,preguntas.length-1);
         console.log(preguntas[pregunta][0]);
         preguntando=true;
     		contextoBuffer.fillStyle = "#ffffff";
     		contextoBuffer.font = "20px sans-serif";
-    		contextoBuffer.fillText(preguntas[pregunta][0], 20, 20);
+    		contextoBuffer.fillText(preguntas[pregunta][0]+"?", 20, 20);
         contextoBuffer.fillStyle = "#00ff00";
         contextoBuffer.fillText("(v) verdadero", 20, 45);
         contextoBuffer.fillStyle = "#ff0000";
@@ -157,8 +160,10 @@ function run(){
 
 
 
-		if(heroe.vida <= 0)
+		if(heroe.vida <= 0){
 			jugando = false;
+		}
+
 
 		contexto.clearRect(0,0,miCanvas.width,miCanvas.height);
 		contexto.drawImage(buffer, 0, 0);
@@ -167,6 +172,7 @@ function run(){
     }
 
 	}else {
+
 		contextoBuffer.clearRect(0,0,buffer.width,buffer.height);
 		contextoBuffer.fillStyle = "#ffffff";
 		heroe.sprite = 3;
