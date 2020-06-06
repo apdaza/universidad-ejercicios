@@ -70,4 +70,5 @@ function Heroe(){
 		   return true;
 	}
 
+
 }

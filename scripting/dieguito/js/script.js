@@ -15,10 +15,9 @@ function inicio(){
   img_fondo = $("#fondo")[0]
 	heroe = new Heroe();
 	puntos = [new Punto(500),new Punto(1000),new Punto(1500),new Punto(2000),new Punto(2500)];
-  //$('#viento')[0].play();
-	enemigos = [new Enemigo(), new Enemigo(),
-		  new Enemigo(), new Enemigo(),
-		  new Enemigo(), new Enemigo()];
+
+	enemigos = [new Enemigo(200), new Enemigo(700), new Enemigo(1200), new Enemigo(1700),
+		  new Enemigo(2200), new Enemigo(2800)];
 
   pisos = [new Piso(0,350), new Piso(128,350),
              new Piso(256,350), new Piso(384,350),
@@ -77,6 +76,7 @@ function inicio(){
 function capturaTeclado(event){
   console.log(event.which, preguntando);
   accion = "";
+	$('#zombie')[0].play();
 	if(event.which==39 || event.which==68){
 		accion="derecha";
   }
@@ -86,6 +86,7 @@ function capturaTeclado(event){
   if(preguntando){
     if(event.which==86){
 			$('#cripta')[0].pause();
+			$('#cripta')[0].currentTime = 0;
       if(preguntas[pregunta][1]=="v"){
         heroe.puntos+=10;
       }else{
@@ -97,6 +98,7 @@ function capturaTeclado(event){
     }
     if(event.which==70){
 			$('#cripta')[0].pause();
+			$('#cripta')[0].currentTime = 0;
       if(preguntas[pregunta][1]=="f"){
         heroe.puntos+=10;
       }else{
@@ -119,6 +121,9 @@ function capturaTeclado(event){
   for(i=0;i<puntos.length;i++){
     puntos[i].actualizar(accion);
   }
+	for(i=0;i<enemigos.length;i++){
+    enemigos[i].actualizar(accion);
+  }
 }
 
 function run(){
@@ -126,16 +131,21 @@ function run(){
 	buffer.height = miCanvas.height;
 	contextoBuffer = buffer.getContext("2d");
 
-
 	if(jugando){
 		contextoBuffer.clearRect(0,0,buffer.width,buffer.height);
     for(i=0;i<objetos.length;i++){
 			objetos[i].dibujar(contextoBuffer);
 		}
     contextoBuffer.drawImage(img_fondo,0,0);
+		for(i=0;i<enemigos.length;i++){
+	    enemigos[i].dibujar(contextoBuffer);
+			enemigos[i].mover();
+	  }
+
 		for(i=0;i<pisos.length;i++){
 			pisos[i].dibujar(contextoBuffer);
 		}
+
 		for(i=0;i<huesos.length;i++){
 			huesos[i].dibujar(contextoBuffer);
 		}
@@ -155,6 +165,11 @@ function run(){
         contextoBuffer.fillText("(v) verdadero", 20, 45);
         contextoBuffer.fillStyle = "#ff0000";
         contextoBuffer.fillText("(f) falso", 20, 70);
+			}
+		}
+		for(i=0;i<enemigos.length;i++){
+			if(enemigos[i].colision(heroe.x,heroe.y)){
+				heroe.vida-=1;
 			}
 		}
 
