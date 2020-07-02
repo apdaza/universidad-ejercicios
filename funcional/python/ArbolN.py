@@ -38,7 +38,10 @@ def insertar(arbol, valor):
 
 def insertar_hijos(arbol, valor):
 	if arbol.hijos == []:
-		return NodoN(arbol.valor, [NodoN(valor)])
+		if arbol.valor == valor[:-1]:
+			return NodoN(arbol.valor, [NodoN(valor)])
+		else:
+			return NodoN(arbol.valor, arbol.hijos) 
 	return NodoN(arbol.valor, [insertar(arbol.hijos[0], valor)]+arbol.hijos[1:])
 	
 
@@ -48,7 +51,8 @@ arbol = NodoN('1',[NodoN('12',[NodoN('121'),
 				  NodoN('10'),
 				  NodoN('13',[NodoN('131'),NodoN('132'),NodoN('133')])])
 
+
 #print(buscar(arbol, '20'))
 #print(buscar(arbol, '130'))
 print(ver_arbol(arbol))
-print(ver_arbol((insertar(arbol, '150'))))
+print(ver_arbol((insertar(arbol, '141'))))
