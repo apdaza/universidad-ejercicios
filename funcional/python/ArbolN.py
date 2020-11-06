@@ -59,5 +59,5 @@ arbol = NodoN('1',[NodoN('12',[NodoN('121'),
 #print(buscar(arbol, '20'))
 #print(buscar(arbol, '130'))
 print(ver_arbol(arbol))
-print(ver_arbol((insertar(arbol, '152'))))
+print(ver_arbol((insertar(arbol, '101'))))
 

@@ -96,14 +96,6 @@ madrede(A,B) :- padrede(A,B), mujer(A).
 abuelode(A,B) :- padrede(A,C), padrede(C,B), hombre(A).
 abuelade(A,B) :- padrede(A,C), padrede(C,B), mujer(A).
 
-hermanode(A,B) :- padrede(C,A), padrede(C,B), A \== B, hombre(A).
-hermanade(A,B) :- padrede(C,A), padrede(C,B), A \== B, mujer(A).
+hermanode(A,B) :- padrede(C,A), padrede(C,B), A \== B.
 
-tiode(A,B) :- padrede(C,B), hermanode(A,C).
-tiade(A,B) :- padrede(C,B), hermanade(A,C).
-
-familiarde(A,B) :- padrede(A,B); hijode(A,B); hijade(A,B).
-
-
-padres(R,M) :- findall(Y,padrede(Y,R),M).
-
+hermanos(X,L) :- findall(Y,hermanode(X,Y),L).

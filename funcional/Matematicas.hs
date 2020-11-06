@@ -29,6 +29,7 @@ division a b = if b == 0 then 0.0
 --factorial de un numero
 factorial::Int->Int
 factorial 0 = 1
+factorial 1 = 1
 factorial n = n * factorial(n-1)
 
 -- calcula el termino n de la serie de fibonacci
@@ -46,7 +47,7 @@ potencia a b = if b == 0 then 1
 --potencia con pseudonimos
 potenciaSeudo::Int->Int->Int
 potenciaSeudo a 0 = 1
-potenciaSeudo 0 b = 1
+potenciaSeudo 1 b = 1
 potenciaSeudo a b = a*potenciaSeudo a (b-1)
 
 --suma los digitos de un numero

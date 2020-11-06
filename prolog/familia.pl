@@ -95,12 +95,17 @@ madrede(A,B) :- padrede(A,B), mujer(A).
 
 abuelode(A,B) :- padrede(A,C), padrede(C,B), hombre(A).
 abuelade(A,B) :- padrede(A,C), padrede(C,B), mujer(A).
-	
-hermanode(A,B) :- padrede(C,A), padrede(C,B), A \== B.
 
-sinRepeticion([X],[X]).
-sinRepeticion([X|XS],[X|L]):- not(member(X,XS)),sinRepeticion(XS,L).
-sinRepeticion([X|XS],L):- member(X,XS),sinRepeticion(XS,L).
+hermanode(A,B) :- padrede(C,A), padrede(C,B), A \== B, hombre(A).
+hermanade(A,B) :- padrede(C,A), padrede(C,B), A \== B, mujer(A).
+
+tiode(A,B) :- padrede(C,B), hermanode(A,C).
+tiade(A,B) :- padrede(C,B), hermanade(A,C).
+
+familiarde(A,B) :- padrede(A,B); hijode(A,B); hijade(A,B).
 
 
-padres(R) :- findall(Y,padrede(X,Y),M),findall([X,M],padrede(X,_),L), sinRepeticion(L,R).
+padres(R,M) :- findall(Y,padrede(Y,R),M).
+
+parejade(A,B) :- padrede(A,C), padrede(B,C), A \== B.
+esfeliz(X) :- parejade(X,_).

@@ -1,0 +1,38 @@
+body {
+    background-color: rgba(166, 201, 209, 0.349);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.5em;
+}
+
+h1, h5 {
+    font-weight: bold;
+    font-style: italic;
+}
+
+h1 {
+    color: darkgreen;
+    float: right;
+}
+
+table {
+    border: 1px solid #000;
+}
+
+.encabezado {
+    background-color: blue;
+    color: aliceblue;
+}
+
+li {
+    font-style: italic;
+    color: darkorange;
+    font-weight: lighter;
+}
+
+ul li {
+    border: 1px solid grey;
+    border-radius: 5px;
+    margin-top: 2em;
+    padding-bottom: 1em;
+}
+
