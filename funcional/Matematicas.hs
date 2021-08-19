@@ -28,7 +28,6 @@ division a b = if b == 0 then 0.0
 --factorial de un numero
 factorial::Int->Int
 factorial 0 = 1
-factorial 1 = 1
 factorial n = n * factorial(n-1)
 
 -- calcula el termino n de la serie de fibonacci
