@@ -44,6 +44,7 @@ padrede('mauricio','paula').
 padrede('andrea','andres').
 padrede('janeth','nicolas').
 padrede('janeth','paula').
+padrede('patricia','daniela').
 
 hombre('victor').
 hombre('alejandro').
