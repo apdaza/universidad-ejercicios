@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="es">
+    <body>
+        <table>
+            {% for d in datos %}
+                <tr>
+                    {% for c in d %}
+                        <td>{{ c }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>

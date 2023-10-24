@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{{ url_for('static', filename = 'style.css')}}">
+        <script src="{{ url_for('static', filename = 'script.js')}}"></script>
+        <title>Hola Render</title>
+    </head>
+    <body>
+        <h1>Hola {{ nombre }}</h1>
+        {% if nombre == 'admin' %}
+            <h2>Usted se unio como admin</h2>
+            <table>
+                {% for k, v in usuarios.items() %}
+                    <tr>
+                        <td>{{ k }}</td>
+                        <td>{{ v }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>Hola invitado</p>
+        {% endif %}
+        <button onclick="hola()">Hola</button>
+    </body>
+</html>

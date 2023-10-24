@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="es">
+    <body>
+        <form action="{{ url_for('index') }}" method="post">
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre"><br>
+            <label for="apellido">Apellido:</label>
+            <input type="text" name="apellido"><br>
+            <input type="submit" value="Enviar">
+        </form>
+    </body>
+</html>

@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="es">
+    <body>
+        <form action="{{ url_for('index') }}" method="post" enctype="multipart/form-data">
+            <label for="file">Archivo:</label>
+            <input type="file" name="file" id="file"><br>
+            <input type="submit" value="Enviar">
+        </form>
+    </body>
+</html>

@@ -1,0 +1,9 @@
+body {
+    background-color: #f5f5f5;
+    color: coral;
+}
+
+table {
+    border: 1px solid #ccc;
+    width: 100%;
+}
