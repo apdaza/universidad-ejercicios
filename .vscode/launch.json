@@ -5,6 +5,20 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "HolaMundo",
+            "request": "launch",
+            "mainClass": "HolaMundo",
+            "projectName": ""
+        },
+        {
+            "type": "java",
+            "name": "Suma",
+            "request": "launch",
+            "mainClass": "Suma",
+            "projectName": "Basicos"
+        },
+        {
             "name": "Python: Archivo actual",
             "type": "python",
             "request": "launch",
