@@ -51,8 +51,8 @@ potenciaSeudo a b = a*potenciaSeudo a (b-1)
 
 potenciaCondicional::Int->Int->Int
 potenciaCondicional a b = if b == 0 then 1
-						  else if a == 1 then 1
-						  else a * potenciaCondicional a (b-1)
+                        else if a == 1 then 1
+                        else a * potenciaCondicional a (b-1)
 
 --suma los digitos de un numero
 sumaDigitos::Int->Int
